@@ -8,8 +8,8 @@
     :root {
       --aqua: #00d4aa;
       --aqua-light: #a3f7d3;
-      --background: #f0fdfb;
-      --text: #222;
+      --background: #111;
+      --text: #f0f0f0;
     }
 
     * {
@@ -28,7 +28,7 @@
 
     header {
       background: var(--aqua);
-      color: white;
+      color: #000;
       padding: 60px 20px;
       text-align: center;
       animation: fadeInDown 1s ease-out;
@@ -41,6 +41,7 @@
 
     header p {
       font-size: 1.2rem;
+      font-weight: bold;
     }
 
     main {
@@ -51,19 +52,19 @@
 
     h2 {
       font-size: 1.6rem;
-      color: var(--aqua);
+      color: var(--aqua-light);
       margin-bottom: 20px;
-      border-bottom: 2px solid var(--aqua-light);
+      border-bottom: 2px solid var(--aqua);
       padding-bottom: 5px;
     }
 
     .project {
-      background: white;
+      background: #1a1a1a;
       border-left: 5px solid var(--aqua);
       padding: 20px;
       margin-bottom: 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
       opacity: 0;
       transform: translateY(30px);
       animation: fadeInUp 0.7s forwards;
@@ -72,7 +73,7 @@
 
     .project h3 {
       margin-top: 0;
-      color: #007c6d;
+      color: var(--aqua);
     }
 
     .project p {
@@ -80,7 +81,7 @@
     }
 
     a {
-      color: var(--aqua);
+      color: var(--aqua-light);
       text-decoration: none;
       font-weight: bold;
     }
@@ -92,9 +93,10 @@
     footer {
       text-align: center;
       padding: 30px;
-      background: var(--aqua-light);
+      background: #000;
       margin-top: 40px;
-      color: #333;
+      color: var(--aqua-light);
+      font-weight: bold;
     }
 
     /* Animaciones */
@@ -131,7 +133,7 @@
 
   <header>
     <h1>Mis Proyectos de Inteligencia Artificial</h1>
-    <p>Curso 2025 | Universidad XYZ</p>
+    <p>Jalal Kaddoura | Cuatrimestre II - 2025</p>
   </header>
 
   <main>
@@ -153,7 +155,7 @@
   </main>
 
   <footer>
-    © 2025 | Desarrollado por Tu Nombre
+    © 2025 | Desarrollado por Jalal Kaddoura
   </footer>
 
 </body>
