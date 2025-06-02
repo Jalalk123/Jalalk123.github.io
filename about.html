@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sobre mí | Jalal Kaddoura</title>
+  <style>
+    :root {
+      --aqua: #00d4aa;
+      --aqua-light: #a3f7d3;
+      --background: #111;
+      --text: #f0f0f0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background: #000;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: var(--aqua-light);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    h1 {
+      color: var(--aqua);
+      font-size: 2.4rem;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .cv-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--aqua);
+      color: #000;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .cv-button:hover {
+      background-color: var(--aqua-light);
+    }
+
+    .contact-info {
+      margin-top: 40px;
+    }
+
+    .contact-info p {
+      margin: 8px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: #000;
+      margin-top: 60px;
+      color: var(--aqua-light);
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <span style="color: var(--aqua-light); font-weight: bold;">JK PORTFOLIO</span>
+    <div>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre mí</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Sobre mí</h1>
+    <p>Hola, soy <strong>Jalal Kaddoura</strong>. Apasionado por la inteligencia artificial, los sistemas embebidos y la electrónica biomédica. Actualmente curso el Cuatrimestre II - 2025 en la Universidad XYZ. Me gusta crear proyectos que mezclen hardware con software, especialmente en áreas como la salud y automatización.</p>
+
+    <p>Puedes descargar mi currículum en el siguiente enlace:</p>
+    <a class="cv-button" href="CV_Jalal_Kaddoura.pdf" target="_blank">📄 Descargar CV</a>
+
+    <div class="contact-info">
+      <h2 style="color: var(--aqua-light); margin-top: 40px;">📬 Contacto</h2>
+      <p>Email: jalal.kaddoura@example.com</p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">linkedin.com/in/tu-perfil</a></p>
+      <p>GitHub: <a href="https://github.com/tu-usuario" target="_blank">github.com/tu-usuario</a></p>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 | Jalal Kaddoura
+  </footer>
+
+</body>
+</html>
