@@ -176,8 +176,21 @@
         transform: translateY(0);
       }
     }
+
+      .game-container {
+  margin-top: 30px;
+  text-align: center;
+}
+
+#gameCanvas {
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(168, 109, 255, 0.5);
+}
   </style>
+
 </head>
+  
 <body>
 
   <div class="sidebar" id="sidebar">
@@ -205,6 +218,11 @@
         <p>Este sitio presenta mis trabajos realizados durante el Cuatrimestre II. Incluye laboratorios, tareas, quizzes y el proyecto final. Puedes ver más en mi <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>.</p>
       </div>
     </div>
+    <div class="game-container">
+  <canvas id="gameCanvas" width="300" height="400"></canvas>
+  <p style="margin-top: 10px; font-size: 0.9rem; color: var(--primary-light);">Haz clic o toca la pelota para mantenerla en el aire.</p>
+</div>
+
 
     <div id="labs" class="section hidden">
       <h2>Laboratorios</h2>
@@ -258,5 +276,77 @@
       sidebar.classList.toggle('closed');
     }
   </script>
+  <script>
+  // Mostrar sección por defecto
+  showSection('home');
+
+  // Sidebar toggle
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    sidebar.classList.toggle('closed');
+  }
+
+  // Juego de la pelota
+  const canvas = document.getElementById('gameCanvas');
+  const ctx = canvas?.getContext('2d');
+
+  if (ctx) {
+    let ball = { x: 150, y: 200, radius: 20, dx: 2, dy: 4 };
+    let gravity = 0.25;
+    let isGameOver = false;
+
+    function drawBall() {
+      ctx.beginPath();
+      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+      ctx.fillStyle = '#a86dff';
+      ctx.fill();
+      ctx.closePath();
+    }
+
+    function update() {
+      if (isGameOver) return;
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBall();
+
+      ball.y += ball.dy;
+      ball.x += ball.dx;
+      ball.dy += gravity;
+
+      // Rebotar en los lados
+      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+        ball.dx *= -1;
+      }
+
+      // Rebotar abajo
+      if (ball.y + ball.radius > canvas.height) {
+        isGameOver = true;
+        ctx.fillStyle = "#f44336";
+        ctx.font = "18px Segoe UI";
+        ctx.fillText("¡Perdiste! Recarga para reiniciar", 30, canvas.height / 2);
+      }
+
+      requestAnimationFrame(update);
+    }
+
+    // Clic para dar impulso
+    canvas.addEventListener('click', function (e) {
+      if (isGameOver) return;
+
+      const rect = canvas.getBoundingClientRect();
+      const clickX = e.clientX - rect.left;
+      const clickY = e.clientY - rect.top;
+
+      const dist = Math.hypot(clickX - ball.x, clickY - ball.y);
+
+      if (dist <= ball.radius) {
+        ball.dy = -6;
+        ball.dx += (Math.random() - 0.5) * 4;
+      }
+    });
+
+    update();
+  }
+</script>
 </body>
 </html>
