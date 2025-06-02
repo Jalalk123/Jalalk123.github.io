@@ -187,6 +187,61 @@
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(168, 109, 255, 0.5);
     }
+    @media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+    padding: 10px;
+  }
+
+  .sidebar.closed {
+    width: 100%;
+  }
+
+  .sidebar .toggle-btn {
+    display: none;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+
+  .sidebar ul {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li {
+    flex: 1;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  .sidebar.closed ul li span {
+    display: inline;
+  }
+
+  .content {
+    padding: 20px;
+  }
+
+  #gameCanvas {
+    width: 100%;
+    height: auto;
+  }
+}
   </style>
 </head>
   
