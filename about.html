@@ -6,29 +6,36 @@
   <title>Sobre mí | Jalal Kaddoura</title>
   <style>
     :root {
-      --aqua: #00d4aa;
-      --aqua-light: #a3f7d3;
-      --background: #111;
-      --text: #f0f0f0;
+      --violeta: #9b5de5;
+      --violeta-claro: #c3afff;
+      --fondo: #0e0b1c;
+      --texto: #ffffff;
+      --oscuro: #1e1b2f;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--background);
-      color: var(--text);
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--fondo);
+      color: var(--texto);
+      overflow-x: hidden;
+    }
+
     nav {
-      background: #000;
-      padding: 15px 20px;
+      background: #151225;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     nav a {
-      color: var(--aqua-light);
+      color: var(--violeta-claro);
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
@@ -38,84 +45,130 @@
       text-decoration: underline;
     }
 
-    .container {
+    .bubble {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: var(--violeta);
+      border-radius: 50%;
+      animation: bounce 5s ease-in-out infinite alternate;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    @keyframes bounce {
+      0% { top: 100px; left: 20px; }
+      50% { top: 300px; left: 80vw; }
+      100% { top: 500px; left: 40vw; }
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--violeta), transparent);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    main {
       max-width: 900px;
-      margin: 50px auto;
-      padding: 20px;
+      margin: auto;
+      padding: 40px 20px;
+      position: relative;
+      z-index: 1;
     }
 
-    h1 {
-      color: var(--aqua);
-      font-size: 2.4rem;
+    .about-card {
+      background: var(--oscuro);
+      border-left: 5px solid var(--violeta);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .about-card h2 {
+      color: var(--violeta-claro);
       margin-bottom: 20px;
     }
 
-    p {
-      font-size: 1.1rem;
+    .about-card p {
       line-height: 1.7;
+      font-size: 1.1rem;
       margin-bottom: 20px;
-    }
-
-    .cv-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: var(--aqua);
-      color: #000;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: bold;
-    }
-
-    .cv-button:hover {
-      background-color: var(--aqua-light);
-    }
-
-    .contact-info {
-      margin-top: 40px;
-    }
-
-    .contact-info p {
-      margin: 8px 0;
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: #000;
-      margin-top: 60px;
-      color: var(--aqua-light);
+      background: #151225;
+      margin-top: 40px;
+      color: var(--violeta-claro);
       font-weight: bold;
+    }
+
+    @keyframes fadeUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
   </style>
 </head>
 <body>
 
+  <div class="bubble"></div>
+
   <nav>
-    <span style="color: var(--aqua-light); font-weight: bold;">JK PORTFOLIO</span>
+    <span style="color: var(--violeta-claro); font-weight: bold;">JK PORTFOLIO</span>
     <div>
       <a href="index.html">Inicio</a>
       <a href="about.html">Sobre mí</a>
     </div>
   </nav>
 
-  <div class="container">
+  <header>
     <h1>Sobre mí</h1>
-    <p>Hola, soy <strong>Jalal Kaddoura</strong>. Apasionado por la inteligencia artificial, los sistemas embebidos y la electrónica biomédica. Actualmente curso el Cuatrimestre II - 2025 en la Universidad XYZ. Me gusta crear proyectos que mezclen hardware con software, especialmente en áreas como la salud y automatización.</p>
+  </header>
 
-    <p>Puedes descargar mi currículum en el siguiente enlace:</p>
-    <a class="cv-button" href="CV_Jalal_Kaddoura.pdf" target="_blank">📄 Descargar CV</a>
-
-    <div class="contact-info">
-      <h2 style="color: var(--aqua-light); margin-top: 40px;">📬 Contacto</h2>
-      <p>Email: jalal.kaddoura@example.com</p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">linkedin.com/in/tu-perfil</a></p>
-      <p>GitHub: <a href="https://github.com/tu-usuario" target="_blank">github.com/tu-usuario</a></p>
+  <main>
+    <div class="about-card">
+      <h2>👨‍💻 Jalal Kaddoura</h2>
+      <p>
+        Soy estudiante de Ingeniería en Sistemas Computacionales y apasionado por la inteligencia artificial, la programación y el desarrollo de software.
+      </p>
+      <p>
+        En esta página encontrarás algunos de los proyectos que he desarrollado en el segundo cuatrimestre de 2025, enfocados principalmente en aplicaciones básicas de IA usando Python.
+      </p>
+      <p>
+        Me gusta explorar nuevas tecnologías, aprender constantemente y construir soluciones creativas que puedan tener un impacto real.
+      </p>
     </div>
-  </div>
+  </main>
 
   <footer>
-    © 2025 | Jalal Kaddoura
+    © 2025 | Desarrollado por Jalal Kaddoura
   </footer>
 
 </body>
 </html>
+
