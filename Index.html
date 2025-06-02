@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IA | Proyectos 2025</title>
+  <style>
+    :root {
+      --aqua: #00d4aa;
+      --aqua-light: #a3f7d3;
+      --background: #f0fdfb;
+      --text: #222;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: var(--aqua);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--aqua);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--aqua-light);
+      padding-bottom: 5px;
+    }
+
+    .project {
+      background: white;
+      border-left: 5px solid var(--aqua);
+      padding: 20px;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeInUp 0.7s forwards;
+      animation-delay: 0.3s;
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: #007c6d;
+    }
+
+    .project p {
+      margin: 10px 0;
+    }
+
+    a {
+      color: var(--aqua);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      background: var(--aqua-light);
+      margin-top: 40px;
+      color: #333;
+    }
+
+    /* Animaciones */
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      .project {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mis Proyectos de Inteligencia Artificial</h1>
+    <p>Curso 2025 | Universidad XYZ</p>
+  </header>
+
+  <main>
+    <h2>🧠 Proyectos</h2>
+
+    <div class="project">
+      <h3>🔍 Clasificador de Flores (KNN)</h3>
+      <p>Modelo simple que clasifica tipos de flores Iris usando KNN con Scikit-learn.</p>
+      <p><a href="https://github.com/tu-usuario/proyecto-clasificador" target="_blank">Ver en GitHub</a></p>
+    </div>
+
+    <div class="project">
+      <h3>🤖 Chatbot en Python</h3>
+      <p>Un chatbot que responde preguntas básicas usando lógica condicional.</p>
+      <p><a href="https://github.com/tu-usuario/chatbot-basico" target="_blank">Ver en GitHub</a></p>
+    </div>
+
+    <!-- Puedes copiar este bloque y pegar más proyectos debajo -->
+  </main>
+
+  <footer>
+    © 2025 | Desarrollado por Tu Nombre
+  </footer>
+
+</body>
+</html>
