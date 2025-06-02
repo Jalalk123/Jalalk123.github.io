@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sobre mí | Jalal Kaddoura</title>
+  <title>Sobre mí | JK Portfolio</title>
   <style>
     :root {
-      --violeta: #9b5de5;
-      --violeta-claro: #c3afff;
-      --fondo: #0e0b1c;
-      --texto: #ffffff;
-      --oscuro: #1e1b2f;
+      --aqua: #00d4aa;
+      --aqua-light: #a3f7d3;
+      --background: #0d0d0d;
+      --text: #f0f0f0;
+      --card: #1a1a1a;
     }
 
     * {
@@ -21,125 +21,155 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
+      background: var(--background);
+      color: var(--text);
       overflow-x: hidden;
     }
 
     nav {
-      background: #151225;
-      padding: 15px 30px;
+      background: #000;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     nav a {
-      color: var(--violeta-claro);
+      color: var(--aqua-light);
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      text-decoration: underline;
-    }
-
-    .bubble {
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      background: var(--violeta);
-      border-radius: 50%;
-      animation: bounce 5s ease-in-out infinite alternate;
-      z-index: 0;
-      opacity: 0.2;
-    }
-
-    @keyframes bounce {
-      0% { top: 100px; left: 20px; }
-      50% { top: 300px; left: 80vw; }
-      100% { top: 500px; left: 40vw; }
+      color: var(--aqua);
     }
 
     header {
-      padding: 80px 20px;
+      background: var(--aqua);
+      color: #000;
+      padding: 60px 20px;
       text-align: center;
-      background: linear-gradient(135deg, var(--violeta), transparent);
-      animation: fadeIn 1.5s ease-in-out;
+      animation: fadeInDown 1s ease-out;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
+    header p {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
     main {
-      max-width: 900px;
-      margin: auto;
-      padding: 40px 20px;
-      position: relative;
-      z-index: 1;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease forwards;
     }
 
-    .about-card {
-      background: var(--oscuro);
-      border-left: 5px solid var(--violeta);
+    section {
+      background: var(--card);
       padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      animation: fadeUp 1s ease forwards;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .about-card h2 {
-      color: var(--violeta-claro);
-      margin-bottom: 20px;
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
     }
 
-    .about-card p {
-      line-height: 1.7;
-      font-size: 1.1rem;
-      margin-bottom: 20px;
+    section h2 {
+      color: var(--aqua);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    section p {
+      line-height: 1.6;
+      color: var(--aqua-light);
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--aqua);
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--aqua-light);
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: #151225;
+      background: #000;
       margin-top: 40px;
-      color: var(--violeta-claro);
+      color: var(--aqua-light);
       font-weight: bold;
     }
 
-    @keyframes fadeUp {
-      from {
-        transform: translateY(30px);
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
         opacity: 0;
+        transform: translateY(30px);
       }
-      to {
-        transform: translateY(0);
+      100% {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @keyframes fadeIn {
-      from {
+    @keyframes fadeInDown {
+      0% {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translateY(-40px);
       }
-      to {
+      100% {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
+      }
+    }
+
+    /* Decorative Bouncing Ball */
+    .ball {
+      position: fixed;
+      bottom: 0;
+      right: 30px;
+      width: 20px;
+      height: 20px;
+      background: var(--aqua);
+      border-radius: 50%;
+      animation: bounce 2s infinite ease-in-out;
+      z-index: 999;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-150px);
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="bubble"></div>
-
   <nav>
-    <span style="color: var(--violeta-claro); font-weight: bold;">JK PORTFOLIO</span>
+    <span style="color: var(--aqua-light); font-weight: bold;">JK PORTFOLIO</span>
     <div>
       <a href="index.html">Inicio</a>
       <a href="about.html">Sobre mí</a>
@@ -148,26 +178,27 @@
 
   <header>
     <h1>Sobre mí</h1>
+    <p>Conoce un poco más sobre quién soy</p>
   </header>
 
   <main>
-    <div class="about-card">
-      <h2>👨‍💻 Jalal Kaddoura</h2>
+    <section>
+      <h2>Hola, soy Jalal 👋</h2>
       <p>
-        Soy estudiante de Ingeniería en Sistemas Computacionales y apasionado por la inteligencia artificial, la programación y el desarrollo de software.
+        Soy un estudiante apasionado por la inteligencia artificial y la programación. Durante este cuatrimestre he trabajado en varios proyectos que me han permitido explorar el uso de modelos de machine learning y crear soluciones creativas con Python.
       </p>
       <p>
-        En esta página encontrarás algunos de los proyectos que he desarrollado en el segundo cuatrimestre de 2025, enfocados principalmente en aplicaciones básicas de IA usando Python.
+        También disfruto del diseño visual de interfaces limpias y funcionales. Este sitio fue desarrollado como parte de mi portafolio personal para mostrar mis avances y compartir lo aprendido.
       </p>
-      <p>
-        Me gusta explorar nuevas tecnologías, aprender constantemente y construir soluciones creativas que puedan tener un impacto real.
-      </p>
-    </div>
+      <a class="btn" href="https://github.com/tu-usuario" target="_blank">Ver mi GitHub</a>
+    </section>
   </main>
 
   <footer>
     © 2025 | Desarrollado por Jalal Kaddoura
   </footer>
+
+  <div class="ball"></div>
 
 </body>
 </html>
