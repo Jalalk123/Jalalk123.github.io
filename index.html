@@ -6,11 +6,11 @@
   <title>IA | Proyectos 2025</title>
   <style>
     :root {
-      --violeta: #9b5de5;
-      --violeta-claro: #c3afff;
-      --fondo: #0e0b1c;
-      --texto: #ffffff;
-      --oscuro: #1e1b2f;
+      --aqua: #00d4aa;
+      --aqua-light: #a3f7d3;
+      --background: #0d0d0d;
+      --text: #f0f0f0;
+      --card: #1a1a1a;
     }
 
     * {
@@ -21,135 +21,186 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: var(--fondo);
-      color: var(--texto);
+      background: var(--background);
+      color: var(--text);
+      scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
     nav {
-      background: #151225;
-      padding: 15px 30px;
+      background: #000;
+      padding: 15px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     nav a {
-      color: var(--violeta-claro);
+      color: var(--aqua-light);
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
     }
 
     nav a:hover {
-      text-decoration: underline;
-    }
-
-    .bubble {
-      position: fixed;
-      width: 30px;
-      height: 30px;
-      background: var(--violeta);
-      border-radius: 50%;
-      animation: bounce 5s ease-in-out infinite alternate;
-      z-index: 0;
-      opacity: 0.2;
-    }
-
-    @keyframes bounce {
-      0% { top: 100px; left: 20px; }
-      50% { top: 300px; left: 80vw; }
-      100% { top: 500px; left: 40vw; }
+      color: var(--aqua);
     }
 
     header {
-      padding: 80px 20px;
+      background: var(--aqua);
+      color: #000;
+      padding: 60px 20px;
       text-align: center;
-      background: linear-gradient(135deg, var(--violeta), transparent);
-      animation: fadeIn 1.5s ease-in-out;
+      animation: fadeInDown 1s ease-out;
     }
 
     header h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: bold;
-      color: var(--violeta-claro);
+    }
+
+    .intro {
+      text-align: center;
+      padding: 30px 20px;
+      animation: fadeInUp 0.8s ease forwards;
+    }
+
+    .intro p {
+      margin: 10px 0;
+      font-size: 1.1rem;
+      color: var(--aqua-light);
+    }
+
+    .intro a {
+      color: var(--aqua);
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .intro a:hover {
+      color: var(--aqua-light);
     }
 
     main {
       max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
-      position: relative;
-      z-index: 1;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: var(--aqua-light);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--aqua);
+      padding-bottom: 5px;
     }
 
     .project {
-      background: var(--oscuro);
-      border-left: 5px solid var(--violeta);
+      background: var(--card);
+      border-left: 5px solid var(--aqua);
       padding: 20px;
-      margin-bottom: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
-      transform: translateY(30px);
-      opacity: 0;
-      animation: fadeUp 1s ease forwards;
+      margin-bottom: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: fadeInUp 0.6s ease forwards;
     }
 
-    .project:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .project:nth-child(3) {
-      animation-delay: 0.4s;
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
     .project h3 {
-      color: var(--violeta);
+      margin-top: 0;
+      color: var(--aqua);
     }
 
-    .project a {
-      color: var(--violeta-claro);
+    .project p {
+      margin: 10px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--aqua);
+      color: #000;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: var(--aqua-light);
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: #151225;
+      background: #000;
       margin-top: 40px;
-      color: var(--violeta-claro);
+      color: var(--aqua-light);
       font-weight: bold;
     }
 
-    @keyframes fadeUp {
-      to {
-        transform: translateY(0);
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
         opacity: 1;
+        transform: translateY(0);
       }
     }
 
-    @keyframes fadeIn {
-      from {
+    @keyframes fadeInDown {
+      0% {
         opacity: 0;
-        transform: scale(0.95);
+        transform: translateY(-40px);
       }
-      to {
+      100% {
         opacity: 1;
-        transform: scale(1);
+        transform: translateY(0);
+      }
+    }
+
+    /* Bouncing Ball */
+    .ball {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      background: var(--aqua);
+      border-radius: 50%;
+      animation: bounce 2s infinite ease-in-out;
+      z-index: 999;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-150px);
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="bubble"></div>
-
   <nav>
-    <span style="color: var(--violeta-claro); font-weight: bold;">JK PORTFOLIO</span>
+    <span style="color: var(--aqua-light); font-weight: bold;">JK PORTFOLIO</span>
     <div>
       <a href="index.html">Inicio</a>
       <a href="about.html">Sobre mí</a>
@@ -161,25 +212,32 @@
     <p>Jalal Kaddoura | Cuatrimestre II - 2025</p>
   </header>
 
+  <div class="intro">
+    <p>Bienvenido a mi portafolio. Aquí encontrarás algunos de mis proyectos más destacados de IA desarrollados este año.</p>
+    <p>🔗 <a href="https://github.com/tu-usuario" target="_blank">Visita mi GitHub</a></p>
+  </div>
+
   <main>
-    <h2 style="color: var(--violeta-claro); margin-bottom: 20px;">🧠 Proyectos</h2>
+    <h2>🧠 Proyectos</h2>
 
     <div class="project">
       <h3>🔍 Clasificador de Flores (KNN)</h3>
       <p>Modelo simple que clasifica tipos de flores Iris usando KNN con Scikit-learn.</p>
-      <p><a href="https://github.com/tu-usuario/proyecto-clasificador" target="_blank">Ver en GitHub</a></p>
+      <a class="btn" href="https://github.com/tu-usuario/proyecto-clasificador" target="_blank">Ver en GitHub</a>
     </div>
 
     <div class="project">
       <h3>🤖 Chatbot en Python</h3>
       <p>Un chatbot que responde preguntas básicas usando lógica condicional.</p>
-      <p><a href="https://github.com/tu-usuario/chatbot-basico" target="_blank">Ver en GitHub</a></p>
+      <a class="btn" href="https://github.com/tu-usuario/chatbot-basico" target="_blank">Ver en GitHub</a>
     </div>
   </main>
 
   <footer>
     © 2025 | Desarrollado por Jalal Kaddoura
   </footer>
+
+  <div class="ball"></div>
 
 </body>
 </html>
