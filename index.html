@@ -6,10 +6,11 @@
   <title>IA | Proyectos 2025</title>
   <style>
     :root {
-      --aqua: #00d4aa;
-      --aqua-light: #a3f7d3;
-      --background: #111;
-      --text: #f0f0f0;
+      --violeta: #9b5de5;
+      --violeta-claro: #c3afff;
+      --fondo: #0e0b1c;
+      --texto: #ffffff;
+      --oscuro: #1e1b2f;
     }
 
     * {
@@ -20,21 +21,21 @@
 
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: var(--background);
-      color: var(--text);
-      line-height: 1.6;
-      scroll-behavior: smooth;
+      background: var(--fondo);
+      color: var(--texto);
+      overflow-x: hidden;
     }
 
     nav {
-      background: #000;
-      padding: 15px 20px;
+      background: #151225;
+      padding: 15px 30px;
       display: flex;
       justify-content: space-between;
+      align-items: center;
     }
 
     nav a {
-      color: var(--aqua-light);
+      color: var(--violeta-claro);
       margin-left: 20px;
       text-decoration: none;
       font-weight: bold;
@@ -44,98 +45,111 @@
       text-decoration: underline;
     }
 
+    .bubble {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      background: var(--violeta);
+      border-radius: 50%;
+      animation: bounce 5s ease-in-out infinite alternate;
+      z-index: 0;
+      opacity: 0.2;
+    }
+
+    @keyframes bounce {
+      0% { top: 100px; left: 20px; }
+      50% { top: 300px; left: 80vw; }
+      100% { top: 500px; left: 40vw; }
+    }
+
     header {
-      background: var(--aqua);
-      color: #000;
-      padding: 60px 20px;
+      padding: 80px 20px;
       text-align: center;
-      animation: fadeInDown 1s ease-out;
+      background: linear-gradient(135deg, var(--violeta), transparent);
+      animation: fadeIn 1.5s ease-in-out;
     }
 
     header h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       margin-bottom: 10px;
     }
 
     header p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: bold;
+      color: var(--violeta-claro);
     }
 
     main {
       max-width: 1000px;
       margin: auto;
       padding: 40px 20px;
-    }
-
-    h2 {
-      font-size: 1.6rem;
-      color: var(--aqua-light);
-      margin-bottom: 20px;
-      border-bottom: 2px solid var(--aqua);
-      padding-bottom: 5px;
+      position: relative;
+      z-index: 1;
     }
 
     .project {
-      background: #1a1a1a;
-      border-left: 5px solid var(--aqua);
+      background: var(--oscuro);
+      border-left: 5px solid var(--violeta);
       padding: 20px;
-      margin-bottom: 25px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      opacity: 0;
+      margin-bottom: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
       transform: translateY(30px);
-      animation: fadeInUp 0.7s forwards;
-      animation-delay: 0.3s;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .project:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .project:nth-child(3) {
+      animation-delay: 0.4s;
     }
 
     .project h3 {
-      margin-top: 0;
-      color: var(--aqua);
+      color: var(--violeta);
     }
 
-    .project p {
-      margin: 10px 0;
-    }
-
-    a {
-      color: var(--aqua-light);
-      text-decoration: none;
-      font-weight: bold;
+    .project a {
+      color: var(--violeta-claro);
     }
 
     footer {
       text-align: center;
       padding: 30px;
-      background: #000;
+      background: #151225;
       margin-top: 40px;
-      color: var(--aqua-light);
+      color: var(--violeta-claro);
       font-weight: bold;
     }
 
-    @keyframes fadeInUp {
+    @keyframes fadeUp {
       to {
-        opacity: 1;
         transform: translateY(0);
+        opacity: 1;
       }
     }
 
-    @keyframes fadeInDown {
+    @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(-40px);
+        transform: scale(0.95);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: scale(1);
       }
     }
   </style>
 </head>
 <body>
 
+  <div class="bubble"></div>
+
   <nav>
-    <span style="color: var(--aqua-light); font-weight: bold;">JK PORTFOLIO</span>
+    <span style="color: var(--violeta-claro); font-weight: bold;">JK PORTFOLIO</span>
     <div>
       <a href="index.html">Inicio</a>
       <a href="about.html">Sobre mí</a>
@@ -148,7 +162,7 @@
   </header>
 
   <main>
-    <h2>🧠 Proyectos</h2>
+    <h2 style="color: var(--violeta-claro); margin-bottom: 20px;">🧠 Proyectos</h2>
 
     <div class="project">
       <h3>🔍 Clasificador de Flores (KNN)</h3>
@@ -169,3 +183,4 @@
 
 </body>
 </html>
+
