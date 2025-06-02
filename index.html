@@ -177,7 +177,7 @@
       }
     }
 
-      .game-container {
+ .game-container {
   margin-top: 30px;
   text-align: center;
 }
@@ -217,11 +217,13 @@
       <div class="intro">
         <p>Este sitio presenta mis trabajos realizados durante el Cuatrimestre II. Incluye laboratorios, tareas, quizzes y el proyecto final. Puedes ver más en mi <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>.</p>
       </div>
-    </div>
-    <div class="game-container">
-  <canvas id="gameCanvas" width="300" height="400"></canvas>
-  <p style="margin-top: 10px; font-size: 0.9rem; color: var(--primary-light);">Haz clic o toca la pelota para mantenerla en el aire.</p>
+ <div class="game-container">
+  <h3>🎮 Minijuego: No dejes caer la pelota</h3>
+  <button onclick="startGame()" style="margin-bottom: 10px; padding: 8px 16px; background: var(--primary); color: #000; border: none; border-radius: 5px; font-weight: bold;">Iniciar Juego</button>
+  <br/>
+  <canvas id="gameCanvas" width="400" height="300"></canvas>
 </div>
+
 
 
     <div id="labs" class="section hidden">
@@ -266,86 +268,90 @@
   </div>
 
   <script>
-    function showSection(id) {
-      document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
-      document.getElementById(id).classList.remove('hidden');
-    }
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+  }
 
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      sidebar.classList.toggle('closed');
-    }
-  </script>
-  <script>
-  // Mostrar sección por defecto
-  showSection('home');
-
-  // Sidebar toggle
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('closed');
   }
 
-  // Juego de la pelota
-  const canvas = document.getElementById('gameCanvas');
-  const ctx = canvas?.getContext('2d');
+  // 🎮 Minijuego
+  let canvas, ctx, ballX, ballY, ballDX, ballDY, paddleX, paddleWidth = 80, paddleHeight = 10, gameInterval, isPlaying = false;
 
-  if (ctx) {
-    let ball = { x: 150, y: 200, radius: 20, dx: 2, dy: 4 };
-    let gravity = 0.25;
-    let isGameOver = false;
+  function startGame() {
+    if (isPlaying) return; // evitar múltiples juegos simultáneos
+    isPlaying = true;
 
-    function drawBall() {
-      ctx.beginPath();
-      ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-      ctx.fillStyle = '#a86dff';
-      ctx.fill();
-      ctx.closePath();
+    canvas = document.getElementById('gameCanvas');
+    ctx = canvas.getContext('2d');
+
+    ballX = canvas.width / 2;
+    ballY = canvas.height / 2;
+    ballDX = 2;
+    ballDY = -2;
+    paddleX = (canvas.width - paddleWidth) / 2;
+
+    document.addEventListener("keydown", keyDownHandler);
+
+    gameInterval = setInterval(draw, 10);
+  }
+
+  function keyDownHandler(e) {
+    const step = 20;
+    if (e.key === "ArrowRight" && paddleX < canvas.width - paddleWidth) {
+      paddleX += step;
+    } else if (e.key === "ArrowLeft" && paddleX > 0) {
+      paddleX -= step;
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Dibuja pelota
+    ctx.beginPath();
+    ctx.arc(ballX, ballY, 10, 0, Math.PI * 2);
+    ctx.fillStyle = "#a86dff";
+    ctx.fill();
+    ctx.closePath();
+
+    // Dibuja plataforma
+    ctx.beginPath();
+    ctx.rect(paddleX, canvas.height - paddleHeight - 10, paddleWidth, paddleHeight);
+    ctx.fillStyle = "#d5b7ff";
+    ctx.fill();
+    ctx.closePath();
+
+    // Movimiento de la pelota
+    ballX += ballDX;
+    ballY += ballDY;
+
+    // Rebote en paredes
+    if (ballX + ballDX > canvas.width - 10 || ballX + ballDX < 10) {
+      ballDX = -ballDX;
+    }
+    if (ballY + ballDY < 10) {
+      ballDY = -ballDY;
     }
 
-    function update() {
-      if (isGameOver) return;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      drawBall();
-
-      ball.y += ball.dy;
-      ball.x += ball.dx;
-      ball.dy += gravity;
-
-      // Rebotar en los lados
-      if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
-        ball.dx *= -1;
-      }
-
-      // Rebotar abajo
-      if (ball.y + ball.radius > canvas.height) {
-        isGameOver = true;
-        ctx.fillStyle = "#f44336";
-        ctx.font = "18px Segoe UI";
-        ctx.fillText("¡Perdiste! Recarga para reiniciar", 30, canvas.height / 2);
-      }
-
-      requestAnimationFrame(update);
+    // Rebote en plataforma
+    if (
+      ballY + ballDY > canvas.height - paddleHeight - 10 &&
+      ballX > paddleX &&
+      ballX < paddleX + paddleWidth
+    ) {
+      ballDY = -ballDY;
     }
 
-    // Clic para dar impulso
-    canvas.addEventListener('click', function (e) {
-      if (isGameOver) return;
-
-      const rect = canvas.getBoundingClientRect();
-      const clickX = e.clientX - rect.left;
-      const clickY = e.clientY - rect.top;
-
-      const dist = Math.hypot(clickX - ball.x, clickY - ball.y);
-
-      if (dist <= ball.radius) {
-        ball.dy = -6;
-        ball.dx += (Math.random() - 0.5) * 4;
-      }
-    });
-
-    update();
+    // Fin del juego
+    if (ballY + ballDY > canvas.height) {
+      clearInterval(gameInterval);
+      isPlaying = false;
+      alert("💥 Juego terminado. ¡La pelota cayó!");
+    }
   }
 </script>
 </body>
