@@ -177,22 +177,20 @@
       }
     }
 
- .game-container {
-  margin-top: 30px;
-  text-align: center;
-}
+    .game-container {
+      margin-top: 30px;
+      text-align: center;
+    }
 
-#gameCanvas {
-  background: #222;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(168, 109, 255, 0.5);
-}
+    #gameCanvas {
+      background: #222;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(168, 109, 255, 0.5);
+    }
   </style>
-
 </head>
   
 <body>
-
   <div class="sidebar" id="sidebar">
     <div class="toggle-btn" onclick="toggleSidebar()">
       <i class="fas fa-chevron-left"></i>
@@ -217,15 +215,16 @@
       <div class="intro">
         <p>Este sitio presenta mis trabajos realizados durante el Cuatrimestre II. Incluye laboratorios, tareas, quizzes y el proyecto final. Puedes ver más en mi <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>.</p>
       </div>
- <div class="game-container">
-  <h3>🎮 Minijuego: No dejes caer la pelota</h3>
-  <button onclick="startGame()" style="margin-bottom: 10px; padding: 8px 16px; background: var(--primary); color: #000; border: none; border-radius: 5px; font-weight: bold;">Iniciar Juego</button>
-  <br/>
-  <canvas id="gameCanvas" width="400" height="300"></canvas>
-</div>
 
+      <div class="game-container">
+        <h3>🎮 Minijuego: No dejes caer la pelota</h3>
+        <button onclick="startGame()" style="margin-bottom: 10px; padding: 8px 16px; background: var(--primary); color: #000; border: none; border-radius: 5px; font-weight: bold;">Iniciar Juego</button>
+        <br/>
+        <canvas id="gameCanvas" width="400" height="300"></canvas>
+      </div>
+    </div>
 
-
+    <!-- 👇 SECCIONES FUERA de "home" -->
     <div id="labs" class="section hidden">
       <h2>Laboratorios</h2>
       <div class="card">
@@ -261,97 +260,92 @@
         <button onclick="window.open('https://github.com/tu-usuario/chatbot-basico', '_blank')">Ver en GitHub</button>
       </div>
     </div>
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
-    document.getElementById(id).classList.remove('hidden');
-  }
 
-  function toggleSidebar() {
-    const sidebar = document.getElementById('sidebar');
-    sidebar.classList.toggle('closed');
-  }
-
-  // 🎮 Minijuego
-  let canvas, ctx, ballX, ballY, ballDX, ballDY, paddleX, paddleWidth = 80, paddleHeight = 10, gameInterval, isPlaying = false;
-
-  function startGame() {
-    if (isPlaying) return; // evitar múltiples juegos simultáneos
-    isPlaying = true;
-
-    canvas = document.getElementById('gameCanvas');
-    ctx = canvas.getContext('2d');
-
-    ballX = canvas.width / 2;
-    ballY = canvas.height / 2;
-    ballDX = 2;
-    ballDY = -2;
-    paddleX = (canvas.width - paddleWidth) / 2;
-
-    document.addEventListener("keydown", keyDownHandler);
-
-    gameInterval = setInterval(draw, 10);
-  }
-
-  function keyDownHandler(e) {
-    const step = 20;
-    if (e.key === "ArrowRight" && paddleX < canvas.width - paddleWidth) {
-      paddleX += step;
-    } else if (e.key === "ArrowLeft" && paddleX > 0) {
-      paddleX -= step;
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Dibuja pelota
-    ctx.beginPath();
-    ctx.arc(ballX, ballY, 10, 0, Math.PI * 2);
-    ctx.fillStyle = "#a86dff";
-    ctx.fill();
-    ctx.closePath();
-
-    // Dibuja plataforma
-    ctx.beginPath();
-    ctx.rect(paddleX, canvas.height - paddleHeight - 10, paddleWidth, paddleHeight);
-    ctx.fillStyle = "#d5b7ff";
-    ctx.fill();
-    ctx.closePath();
-
-    // Movimiento de la pelota
-    ballX += ballDX;
-    ballY += ballDY;
-
-    // Rebote en paredes
-    if (ballX + ballDX > canvas.width - 10 || ballX + ballDX < 10) {
-      ballDX = -ballDX;
-    }
-    if (ballY + ballDY < 10) {
-      ballDY = -ballDY;
-    }
-
-    // Rebote en plataforma
-    if (
-      ballY + ballDY > canvas.height - paddleHeight - 10 &&
-      ballX > paddleX &&
-      ballX < paddleX + paddleWidth
-    ) {
-      ballDY = -ballDY;
-    }
-
-    // Fin del juego
-    if (ballY + ballDY > canvas.height) {
-      clearInterval(gameInterval);
-      isPlaying = false;
-      alert("💥 Juego terminado. ¡La pelota cayó!");
-    }
-  }
-</script>
     <footer>
       © 2025 | Desarrollado por Jalal Kaddoura
     </footer>
   </div>
 
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.add('hidden'));
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('closed');
+    }
+
+    // 🎮 Minijuego
+    let canvas, ctx, ballX, ballY, ballDX, ballDY, paddleX, paddleWidth = 80, paddleHeight = 10, gameInterval, isPlaying = false;
+
+    function startGame() {
+      if (isPlaying) return;
+      isPlaying = true;
+
+      canvas = document.getElementById('gameCanvas');
+      ctx = canvas.getContext('2d');
+
+      ballX = canvas.width / 2;
+      ballY = canvas.height / 2;
+      ballDX = 2;
+      ballDY = -2;
+      paddleX = (canvas.width - paddleWidth) / 2;
+
+      document.addEventListener("keydown", keyDownHandler);
+
+      gameInterval = setInterval(draw, 10);
+    }
+
+    function keyDownHandler(e) {
+      const step = 20;
+      if (e.key === "ArrowRight" && paddleX < canvas.width - paddleWidth) {
+        paddleX += step;
+      } else if (e.key === "ArrowLeft" && paddleX > 0) {
+        paddleX -= step;
+      }
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      ctx.beginPath();
+      ctx.arc(ballX, ballY, 10, 0, Math.PI * 2);
+      ctx.fillStyle = "#a86dff";
+      ctx.fill();
+      ctx.closePath();
+
+      ctx.beginPath();
+      ctx.rect(paddleX, canvas.height - paddleHeight - 10, paddleWidth, paddleHeight);
+      ctx.fillStyle = "#d5b7ff";
+      ctx.fill();
+      ctx.closePath();
+
+      ballX += ballDX;
+      ballY += ballDY;
+
+      if (ballX + ballDX > canvas.width - 10 || ballX + ballDX < 10) {
+        ballDX = -ballDX;
+      }
+      if (ballY + ballDY < 10) {
+        ballDY = -ballDY;
+      }
+
+      if (
+        ballY + ballDY > canvas.height - paddleHeight - 10 &&
+        ballX > paddleX &&
+        ballX < paddleX + paddleWidth
+      ) {
+        ballDY = -ballDY;
+      }
+
+      if (ballY + ballDY > canvas.height) {
+        clearInterval(gameInterval);
+        isPlaying = false;
+        alert("💥 Juego terminado. ¡La pelota cayó!");
+      }
+    }
+  </script>
 </body>
 </html>
