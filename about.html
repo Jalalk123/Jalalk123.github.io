@@ -24,6 +24,7 @@
       background: var(--background);
       color: var(--text);
       display: flex;
+      flex-direction: row;
     }
 
     .sidebar {
@@ -162,6 +163,65 @@
         transform: translateY(0);
       }
     }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        padding: 10px;
+      }
+
+      .sidebar h2 {
+        display: none;
+      }
+
+      .sidebar .toggle-btn {
+        display: none;
+      }
+
+      .sidebar ul {
+        display: flex;
+        flex-direction: row;
+        padding: 0;
+        margin: 0;
+      }
+
+      .sidebar ul li {
+        flex: 1;
+        justify-content: center;
+        font-size: 0.9rem;
+      }
+
+      .sidebar.closed ul li span {
+        display: inline;
+      }
+
+      .content {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .cv-button {
+        width: 100%;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>
@@ -179,9 +239,9 @@
 
   <div class="content">
     <h1>Sobre mí</h1>
-    <p>Hola, soy <strong>Jalal Kaddoura</strong>. Estudiante de Ingenieria Biomédica. Interesado en la inteligencia artificial, sistema de automatización y la electrónica biomédica. Actualmente curso el Cuatrimestre X en la Universidad Universidad Latina de Panamá</p>
+    <p>Hola, soy <strong>Jalal Kaddoura</strong>. Estudiante de Ingeniería Biomédica. Interesado en la inteligencia artificial, sistemas de automatización y electrónica biomédica. Actualmente curso el Cuatrimestre X en la Universidad Latina de Panamá.</p>
 
-    <p>Domino el español, árabe(Intemedio) e inglés a nivel avanzado. Me apasiona el aprendizaje continuo, por lo que he complementado mi formación con el Curso de Inteligencia Financiera en UDEMY y el Curso en Global Health de la Universidad de Arkansas. A lo largo de mi trayectoria universitaria, he tenido el honor de liderar la Rama Estudiantil IEEE como presidente, vicepresidente y coordinador de membresías. He trabajado como tutor académico en materias como matemáticas y ciencias, y presenté un paper de investigación en el Congreso Latinoamericano de Ingeniería Biomédica (CLAIB 2024). Me considero una persona con habilidades para la resolución de problemas, la oratoria, la negociación y el emprendimiento.</p>
+    <p>Domino el español, árabe (intermedio) e inglés avanzado. Me apasiona el aprendizaje continuo, complementado con cursos en Udemy y universidades internacionales. He liderado IEEE, sido tutor académico y presenté un paper en CLAIB 2024.</p>
 
     <p>Puedes descargar mi currículum en el siguiente enlace:</p>
     <a class="cv-button" href="CV_Jalal_Kaddoura.pdf" target="_blank">📄 Descargar CV</a>
@@ -190,7 +250,7 @@
       <h2>📬 Contacto</h2>
       <p>Email: jalalkulat@gmail.com</p>
       <p>LinkedIn: <a href="https://www.linkedin.com/in/tu-perfil" target="_blank">linkedin.com/in/tu-perfil</a></p>
-      <p>GitHub: <a href="https://github.com/Jalalk123" target="_blank">github.com/tu-usuario</a></p>
+      <p>GitHub: <a href="https://github.com/Jalalk123" target="_blank">github.com/Jalalk123</a></p>
     </div>
 
     <footer>
@@ -207,4 +267,3 @@
 
 </body>
 </html>
-
