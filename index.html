@@ -26,6 +26,24 @@
       scroll-behavior: smooth;
     }
 
+    nav {
+      background: #000;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav a {
+      color: var(--aqua-light);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     header {
       background: var(--aqua);
       color: #000;
@@ -86,10 +104,6 @@
       font-weight: bold;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
     footer {
       text-align: center;
       padding: 30px;
@@ -99,7 +113,6 @@
       font-weight: bold;
     }
 
-    /* Animaciones */
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -117,19 +130,17 @@
         transform: translateY(0);
       }
     }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      .project {
-        padding: 15px;
-      }
-    }
   </style>
 </head>
 <body>
+
+  <nav>
+    <span style="color: var(--aqua-light); font-weight: bold;">JK PORTFOLIO</span>
+    <div>
+      <a href="index.html">Inicio</a>
+      <a href="about.html">Sobre mí</a>
+    </div>
+  </nav>
 
   <header>
     <h1>Mis Proyectos de Inteligencia Artificial</h1>
@@ -150,8 +161,6 @@
       <p>Un chatbot que responde preguntas básicas usando lógica condicional.</p>
       <p><a href="https://github.com/tu-usuario/chatbot-basico" target="_blank">Ver en GitHub</a></p>
     </div>
-
-    <!-- Puedes copiar este bloque y pegar más proyectos debajo -->
   </main>
 
   <footer>
