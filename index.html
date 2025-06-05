@@ -276,6 +276,9 @@
         <button onclick="startGame()" style="margin-bottom: 10px; padding: 8px 16px; background: var(--primary); color: #000; border: none; border-radius: 5px; font-weight: bold;">Iniciar Juego</button>
         <br/>
         <canvas id="gameCanvas" width="400" height="300"></canvas>
+        <div id="mobileControls" style="margin-top: 15px;">
+  <button onclick="movePaddleLeft()" style="padding: 10px 20px; font-size: 1.2rem; margin-right: 10px;">⬅️</button>
+  <button onclick="movePaddleRight()" style="padding: 10px 20px; font-size: 1.2rem;">➡️</button>
       </div>
     </div>
 
@@ -353,13 +356,29 @@
       gameInterval = setInterval(draw, 10);
     }
 
-    function keyDownHandler(e) {
-      const step = 20;
-      if (e.key === "ArrowRight" && paddleX < canvas.width - paddleWidth) {
-        paddleX += step;
-      } else if (e.key === "ArrowLeft" && paddleX > 0) {
-        paddleX -= step;
-      }
+function keyDownHandler(e) {
+  const step = 20;
+  if (e.key === "ArrowRight" && paddleX < canvas.width - paddleWidth) {
+    paddleX += step;
+  } else if (e.key === "ArrowLeft" && paddleX > 0) {
+    paddleX -= step;
+  }
+}
+
+      function movePaddleLeft() {
+  const step = 20;
+  if (paddleX > 0) {
+    paddleX -= step;
+  }
+}
+
+function movePaddleRight() {
+  const step = 20;
+  if (paddleX < canvas.width - paddleWidth) {
+    paddleX += step;
+  }
+}
+
     }
 
     function draw() {
