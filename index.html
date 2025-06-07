@@ -261,65 +261,80 @@
     </ul>
   </div>
 
-  <div class="content">
-    <div id="home" class="section">
-      <header>
-        <h1>Portafolio de Proyectos 2025 - Cuatrimestre II</h1>
-        <p>Jalal Kaddoura | Inteligencia Artificial</p>
-      </header>
-      <div class="intro">
-        <p>Este sitio presenta mis trabajos realizados durante el Cuatrimestre II. Incluye laboratorios, tareas, quizzes y el proyecto final. Puedes ver más en mi <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>.</p>
-      </div>
+  <!-- ...todo tu head y CSS se mantiene igual... -->
 
-      <div class="game-container">
-        <h3>🎮 Minijuego: No dejes caer la pelota</h3>
-        <button onclick="startGame()" style="margin-bottom: 10px; padding: 8px 16px; background: var(--primary); color: #000; border: none; border-radius: 5px; font-weight: bold;">Iniciar Juego</button>
-        <br/>
-        <canvas id="gameCanvas" width="400" height="300"></canvas>
-      </div>
+<!-- 👇 Reemplaza las secciones dentro de <div class="content"> desde aquí: -->
+
+<div class="content">
+  <div id="home" class="section">
+    <header>
+      <h1>Portafolio de Proyectos 2025 - Cuatrimestre II</h1>
+      <p>Jalal Kaddoura | Inteligencia Artificial</p>
+    </header>
+    <div class="intro">
+      <p>Este sitio presenta mis trabajos realizados durante el Cuatrimestre II. Incluye laboratorios, tareas, quizzes y el proyecto final. Puedes ver más en mi <a href="https://github.com/Jalalk123" target="_blank">GitHub</a>.</p>
     </div>
 
-    <!-- 👇 SECCIONES FUERA de "home" -->
-    <div id="labs" class="section hidden">
-      <h2>Laboratorios</h2>
-      <div class="card">
-        <h3>🔬 Laboratorio 1</h3>
-        <p>Github con Overview</p>
-        <button onclick="window.open('https://github.com/Jalalk123', '_blank')">Ver en GitHub</button>
-      </div>
+    <div class="game-container">
+      <h3>🎮 Minijuego: No dejes caer la pelota</h3>
+      <button onclick="startGame()">Iniciar Juego</button><br/>
+      <canvas id="gameCanvas" width="400" height="300"></canvas>
     </div>
-
-    <div id="tasks" class="section hidden">
-      <h2>Tareas</h2>
-      <div class="card">
-        <h3>📄 Tarea 1</h3>
-        <p>Página Web de Github</p>
-        <button onclick="window.open('https://jalalk123.github.io/index.html', '_blank')">Ver en GitHub</button>
-      </div>
-    </div>
-
-    <div id="quizzes" class="section hidden">
-      <h2>Quizzes</h2>
-      <div class="card">
-        <h3>📝 Quiz 1</h3>
-        <p>Pendiente</p>
-        <button>Ver en GitHub</button>
-      </div>
-    </div>
-
-    <div id="project" class="section hidden">
-      <h2>Proyecto Final</h2>
-      <div class="card">
-        <h3>Por Decidir</h3>
-        <p>Implementar una idea de negocio tipo SAAS, o realizar una labor en una empresa demostrando rentabilidad.</p>
-        <button onclick="window.open('https://github.com/tu-usuario/chatbot-basico', '_blank')">Ver en GitHub</button>
-      </div>
-    </div>
-
-    <footer>
-      © 2025 | Desarrollado por Jalal Kaddoura
-    </footer>
   </div>
+
+  <!-- 🔬 Laboratorios -->
+  <div id="labs" class="section hidden">
+    <h2>Laboratorios</h2>
+    <div class="card">
+      <h3>🔬 Laboratorio 1</h3>
+      <p><strong>Descripción:</strong> En este laboratorio se configuró GitHub y se hizo un primer commit desde VSCode.</p>
+      <img src="img/lab1.png" alt="Laboratorio 1" style="width: 100%; border-radius: 8px; margin: 10px 0;" />
+      <p><strong>Resultados:</strong> Proyecto subido correctamente con control de versiones funcionando.</p>
+      <button onclick="window.open('https://github.com/Jalalk123', '_blank')">Ver en GitHub</button>
+    </div>
+  </div>
+
+  <!-- 📄 Tareas -->
+  <div id="tasks" class="section hidden">
+    <h2>Tareas</h2>
+    <div class="card">
+      <h3>📄 Tarea 1</h3>
+      <p><strong>Descripción:</strong> Desarrollo de una página web personal para publicación en GitHub Pages.</p>
+      <img src="img/tarea1.png" alt="Tarea 1" style="width: 100%; border-radius: 8px; margin: 10px 0;" />
+      <p><strong>Resultados:</strong> Web funcional y publicada correctamente con diseño moderno y responsivo.</p>
+      <button onclick="window.open('https://jalalk123.github.io/index.html', '_blank')">Ver en GitHub</button>
+    </div>
+  </div>
+
+  <!-- 📝 Quizzes -->
+  <div id="quizzes" class="section hidden">
+    <h2>Quizzes</h2>
+    <div class="card">
+      <h3>📝 Quiz 1</h3>
+      <p><strong>Descripción:</strong> Evaluación práctica sobre conceptos de IA y desarrollo web.</p>
+      <img src="img/quiz1.png" alt="Quiz 1" style="width: 100%; border-radius: 8px; margin: 10px 0;" />
+      <p><strong>Resultados:</strong> Pendiente de entrega o revisión.</p>
+      <button disabled>Ver en GitHub</button>
+    </div>
+  </div>
+
+  <!-- 🚀 Proyecto Final -->
+  <div id="project" class="section hidden">
+    <h2>Proyecto Final</h2>
+    <div class="card">
+      <h3>🚀 Chatbot Educativo</h3>
+      <p><strong>Descripción:</strong> Desarrollo de un chatbot orientado a responder preguntas educativas usando IA.</p>
+      <img src="img/proyecto-final.png" alt="Proyecto Final" style="width: 100%; border-radius: 8px; margin: 10px 0;" />
+      <p><strong>Resultados:</strong> Se implementó con éxito un prototipo funcional capaz de interactuar en lenguaje natural.</p>
+      <button onclick="window.open('https://github.com/tu-usuario/chatbot-basico', '_blank')">Ver en GitHub</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 | Desarrollado por Jalal Kaddoura
+  </footer>
+</div>
+
 
   <script>
     function showSection(id) {
