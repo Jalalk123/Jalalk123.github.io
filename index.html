@@ -279,7 +279,6 @@
     </div>
   </div>
 
-  <!-- 🔬 Laboratorios -->
   <div id="labs" class="section hidden">
     <h2>Laboratorios</h2>
     <div class="card">
@@ -298,7 +297,6 @@
     </div>
   </div>
 
-  <!-- Tareas -->
   <div id="tasks" class="section hidden">
     <h2>Tareas</h2>
     <div class="card">
@@ -310,7 +308,6 @@
     </div>
   </div>
 
-  <!-- Quizzes -->
   <div id="quizzes" class="section hidden">
     <h2>Quizzes</h2>
     <div class="card">
@@ -321,7 +318,6 @@
        <button onclick="window.open('https://github.com/Jalalk123/Quiz-1/blob/main/Quiz%20Resuelto', '_blank')">Ver en GitHub</button>  
   </div>
 
-  <!-- Proyecto Final -->
   <div id="project" class="section hidden">
     <h2>Proyecto Final</h2>
     <div class="card">
@@ -350,7 +346,6 @@
       sidebar.classList.toggle('closed');
     }
 
-    // 🎮 Minijuego
     let canvas, ctx, ballX, ballY, ballDX, ballDY, paddleX, paddleWidth = 80, paddleHeight = 10, gameInterval, isPlaying = false;
 
     function startGame() {
@@ -416,7 +411,7 @@
       if (ballY + ballDY > canvas.height) {
         clearInterval(gameInterval);
         isPlaying = false;
-        alert("💥 Juego terminado. ¡La pelota cayó!");
+        alert(" Juego terminado. ¡La pelota cayó!");
       }
     }
   </script>
