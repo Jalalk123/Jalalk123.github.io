@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JK Portfolio | Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #a86dff;
@@ -15,16 +16,41 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: var(--background);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: var(--background);
-      color: var(--text);
       display: flex;
+    }
+
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .animated-bg svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotate(180deg);
     }
 
     .sidebar {
@@ -34,6 +60,7 @@
       padding: 20px;
       transition: width 0.3s ease;
       position: relative;
+      z-index: 2;
     }
 
     .sidebar.closed {
@@ -72,12 +99,13 @@
     .sidebar ul li {
       margin: 20px 0;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: all 0.3s;
       padding: 10px;
       border-radius: 8px;
       display: flex;
       align-items: center;
       gap: 10px;
+      color: var(--text);
     }
 
     .sidebar ul li:hover {
@@ -91,66 +119,81 @@
 
     .content {
       flex: 1;
-      padding: 40px;
-      transition: margin-left 0.3s;
-    }
-
-    .hidden {
-      display: none;
+      padding: 60px;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.03), transparent 70%), var(--background);
+      position: relative;
+      z-index: 1;
     }
 
     .section {
-      animation: fadeIn 0.5s ease forwards;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeSlideIn 1s ease forwards;
     }
 
-    header {
-      margin-bottom: 30px;
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     header h1 {
-      font-size: 2.4rem;
-      color: var(--primary-light);
+      font-size: 3rem;
+      color: var(--primary);
+      animation: fadeSlideIn 1.2s ease forwards;
     }
 
     header p {
-      font-size: 1.1rem;
-      color: #aaa;
+      font-size: 1.2rem;
+      color: var(--primary-light);
+      margin-top: 10px;
     }
 
     .intro {
-      margin-bottom: 20px;
+      margin-top: 30px;
+      font-size: 1rem;
+      color: #ccc;
     }
 
     .intro a {
-      color: var(--primary-light);
+      color: var(--primary);
       font-weight: bold;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .intro a:hover {
+      text-shadow: 0 0 10px var(--primary);
     }
 
     .card {
       background: var(--card-bg);
-      border-left: 5px solid var(--primary);
       padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      transition: transform 0.3s ease;
+      border-left: 5px solid var(--primary);
+      border-radius: 12px;
+      margin-top: 30px;
+      box-shadow: 0 4px 20px rgba(168, 109, 255, 0.15);
+      transition: transform 0.4s ease, box-shadow 0.4s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(168, 109, 255, 0.3);
     }
 
     .card h3 {
-      color: var(--primary);
+      color: var(--primary-light);
     }
 
     .card button {
-      margin-top: 10px;
-      padding: 8px 16px;
+      margin-top: 15px;
+      padding: 10px 18px;
       background: var(--primary);
       color: #000;
-      border: none;
-      border-radius: 5px;
       font-weight: bold;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s;
     }
@@ -160,90 +203,95 @@
     }
 
     footer {
+      margin-top: 60px;
       text-align: center;
-      margin-top: 40px;
-      color: var(--primary-light);
       font-weight: bold;
+      color: var(--primary-light);
+      font-size: 0.9rem;
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    canvas {
+      margin-top: 20px;
+      border-radius: 10px;
+      background: #1e1e1e;
+      box-shadow: 0 0 10px rgba(168,109,255,0.5);
     }
 
     .game-container {
-      margin-top: 30px;
+      margin-top: 40px;
       text-align: center;
     }
 
-    #gameCanvas {
-      background: #222;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(168, 109, 255, 0.5);
+    .game-container button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: var(--primary);
+      border: none;
+      border-radius: 10px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s;
     }
+
+    .game-container button:hover {
+      background: var(--primary-light);
+    }
+
     @media (max-width: 768px) {
-  body {
-    flex-direction: column;
-  }
+      body {
+        flex-direction: column;
+      }
 
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: static;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    overflow-x: auto;
-    padding: 10px;
-  }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+      }
 
-  .sidebar.closed {
-    width: 100%;
-  }
+      .sidebar .toggle-btn {
+        display: none;
+      }
 
-  .sidebar .toggle-btn {
-    display: none;
-  }
+      .sidebar h2 {
+        display: none;
+      }
 
-  .sidebar h2 {
-    display: none;
-  }
+      .sidebar ul {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+      }
 
-  .sidebar ul {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    padding: 0;
-    margin: 0;
-  }
+      .sidebar ul li {
+        flex: 1;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
 
-  .sidebar ul li {
-    flex: 1;
-    justify-content: center;
-    font-size: 0.9rem;
-  }
-
-  .sidebar.closed ul li span {
-    display: inline;
-  }
-
-  .content {
-    padding: 20px;
-  }
-
-  #gameCanvas {
-    width: 100%;
-    height: auto;
-  }
-}
+      .content {
+        padding: 20px;
+      }
+    }
   </style>
 </head>
+<body>
+  <div class="animated-bg">
+    <svg viewBox="0 0 1200 200" preserveAspectRatio="none">
+      <path d="M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z" fill="rgba(168,109,255,0.05)">
+        <animate attributeName="d" dur="15s" repeatCount="indefinite" values="
+          M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z;
+          M0,100 C400,0 800,200 1200,100 L1200,200 L0,200 Z;
+          M0,100 C300,200 900,0 1200,100 L1200,200 L0,200 Z
+        " />
+      </path>
+    </svg>
+  </div>
+  <!-- El resto del contenido HTML permanece igual -->
+</body>
+</html>
+
   
 <body>
   <div class="sidebar" id="sidebar">
