@@ -243,43 +243,10 @@
     height: auto;
   }
 }
-    .background-waves {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  background: linear-gradient(180deg, #1e0033, #3d0066);
-  overflow: hidden;
-}
-
-.background-waves::before {
-  content: '';
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 50% 50%, rgba(168, 109, 255, 0.3), transparent 70%);
-  animation: waveMove 10s linear infinite;
-  mix-blend-mode: overlay;
-}
-
-@keyframes waveMove {
-  0% {
-    transform: translate(-25%, -25%) scale(1);
-  }
-  50% {
-    transform: translate(-30%, -20%) scale(1.1);
-  }
-  100% {
-    transform: translate(-25%, -25%) scale(1);
-  }
-}
   </style>
 </head>
   
 <body>
-  <div class="background-waves"></div>
   <div class="sidebar" id="sidebar">
     <div class="toggle-btn" onclick="toggleSidebar()">
       <i class="fas fa-chevron-left"></i>
