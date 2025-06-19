@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>JK Portfolio | Home</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #a86dff;
@@ -242,21 +241,11 @@
     width: 100%;
     height: auto;
   }
-       
-  #waveBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(#2d014f, #0f0f0f);
 }
   </style>
 </head>
   
 <body>
-  <canvas id="waveBackground"></canvas>
   <div class="sidebar" id="sidebar">
     <div class="toggle-btn" onclick="toggleSidebar()">
       <i class="fas fa-chevron-left"></i>
@@ -425,68 +414,6 @@
         alert(" Juego terminado. ¡La pelota cayó!");
       }
     }
-    // Mostrar sección home al cargar
-document.addEventListener('DOMContentLoaded', () => {
-  showSection('home');
-});
   </script>
-  <script>
-  const canvasBg = document.getElementById('waveBackground');
-  const ctxBg = canvasBg.getContext('2d');
-  let width = canvasBg.width = window.innerWidth;
-  let height = canvasBg.height = window.innerHeight;
-
-  let waves = [];
-  const maxWaves = 20;
-
-  class Wave {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.radius = 0;
-      this.opacity = 1;
-    }
-
-    update() {
-      this.radius += 1.5;
-      this.opacity -= 0.01;
-    }
-
-    draw() {
-      ctxBg.beginPath();
-      ctxBg.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-      ctxBg.strokeStyle = `rgba(168, 109, 255, ${this.opacity})`;
-      ctxBg.lineWidth = 2;
-      ctxBg.stroke();
-    }
-
-    isAlive() {
-      return this.opacity > 0;
-    }
-  }
-
-  canvasBg.addEventListener('mousemove', (e) => {
-    if (waves.length < maxWaves) {
-      waves.push(new Wave(e.clientX, e.clientY));
-    }
-  });
-
-  function animateWaves() {
-    ctxBg.clearRect(0, 0, width, height);
-    waves = waves.filter(w => w.isAlive());
-    for (let wave of waves) {
-      wave.update();
-      wave.draw();
-    }
-    requestAnimationFrame(animateWaves);
-  }
-
-  window.addEventListener('resize', () => {
-    width = canvasBg.width = window.innerWidth;
-    height = canvasBg.height = window.innerHeight;
-  });
-
-  animateWaves();
-</script>
 </body>
 </html>
