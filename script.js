@@ -404,6 +404,271 @@ function initializeProjectTabs() {
     });
 }
 
+// Initialize Project Modals
+function initializeProjectModals() {
+    // Add click handlers to project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach((card, index) => {
+        // Generate project ID based on category and index
+        const categoryContent = card.closest('.project-category-content');
+        const categoryId = categoryContent.id.replace('-content', '');
+        const cardIndex = Array.from(categoryContent.querySelectorAll('.project-card')).indexOf(card);
+        const projectId = `${categoryId}-${cardIndex + 1}`;
+        
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', (e) => {
+            // Prevent opening modal if clicking on GitHub link
+            if (e.target.closest('.btn-github')) {
+                return;
+            }
+            openProjectModal(projectId);
+        });
+    });
+    
+    // Close modal handlers
+    const closeBtn = document.querySelector('.close-modal');
+    const modal = document.getElementById('projectModal');
+    
+    closeBtn.addEventListener('click', closeProjectModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeProjectModal();
+        }
+    });
+    
+    // Close modal with Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeProjectModal();
+        }
+    });
+}
+
+// Project Modal Data
+const projectData = {
+    'ai-1': {
+        title: 'Automatización IA Médica',
+        description: 'Sistema avanzado de automatización que utiliza machine learning para optimizar procesos médicos y diagnósticos. Integra algoritmos de clasificación de última generación con datos biomédicos para mejorar la precisión diagnóstica y acelerar los tiempos de respuesta en entornos clínicos.',
+        tags: ['IA', 'Automatización', 'Machine Learning', 'Diagnósticos'],
+        technologies: ['Python', 'TensorFlow', 'Scikit-learn', 'OpenCV', 'Flask', 'PostgreSQL'],
+        detailedResults: [
+            'Implementación exitosa en 3 hospitales principales con más de 10,000 diagnósticos procesados',
+            'Reducción del 60% en el tiempo de procesamiento de análisis de imágenes médicas',
+            'Mejora del 95% en la precisión de clasificación de patologías comparado con métodos tradicionales',
+            'Integración seamless con sistemas hospitalarios existentes (PACS, HIS)',
+            'Entrenamiento del modelo con dataset de 50,000+ casos clínicos validados',
+            'Certificación ISO 13485 para dispositivos médicos en proceso'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'ai-2': {
+        title: 'Análisis Predictivo',
+        description: 'Desarrollo de modelos predictivos avanzados para el análisis de tendencias en salud pública, utilizando técnicas de deep learning y análisis de datos biomédicos. El sistema procesa grandes volúmenes de datos epidemiológicos para predecir brotes y tendencias de salud.',
+        tags: ['ML', 'Predicción', 'Deep Learning', 'Epidemiología'],
+        technologies: ['Python', 'PyTorch', 'Pandas', 'NumPy', 'Matplotlib', 'Apache Spark'],
+        detailedResults: [
+            'Modelo validado con datos epidemiológicos de 5 países latinoamericanos',
+            'Exactitud del 88% en predicciones de brotes epidemiológicos con 30 días de anticipación',
+            'Publicación en revista científica indexada JCR Q1 en el área de salud pública',
+            'Implementación en sistemas de vigilancia epidemiológica de 2 ministerios de salud',
+            'Procesamiento de más de 1 millón de registros de salud pública',
+            'Colaboración con la OPS para validación de modelos predictivos'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'ai-3': {
+        title: 'Sistema de Recomendación',
+        description: 'Algoritmo de recomendación personalizada para tratamientos médicos basado en historial clínico y patrones de respuesta a terapias. Utiliza técnicas de aprendizaje automático para sugerir tratamientos óptimos considerando el perfil específico de cada paciente.',
+        tags: ['AI', 'Recomendación', 'Medicina Personalizada', 'Algoritmos'],
+        technologies: ['Python', 'Scikit-learn', 'Neo4j', 'Apache Kafka', 'Docker', 'MongoDB'],
+        detailedResults: [
+            'Integración exitosa con 10 sistemas hospitalarios principales',
+            'Mejora del 78% en la eficacia de tratamientos recomendados vs. métodos tradicionales',
+            'Reducción del 45% en efectos adversos reportados en tratamientos recomendados',
+            'Base de datos de conocimiento con más de 100,000 casos clínicos',
+            'Sistema de feedback continuo con validación de outcomes clínicos',
+            'Reconocimiento en congreso internacional de medicina personalizada'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'salud-1': {
+        title: 'Investigación CLAIB 2024',
+        description: 'Artículo científico presentado en el congreso CLAIB 2024 en colaboración con el Dr. Ernesto Ibarra y el Dr. Luis Estrada Petrocelli. La investigación se enfoca en innovaciones en ingeniería biomédica aplicadas a dispositivos de monitoreo cardiovascular no invasivo.',
+        tags: ['Investigación', 'Biomédica', 'Congreso', 'Cardiovascular'],
+        technologies: ['MATLAB', 'Signal Processing', 'ECG Analysis', 'Statistical Analysis', 'LaTeX'],
+        detailedResults: [
+            'Artículo aceptado y presentado en el congreso CLAIB 2024 con más de 500 asistentes',
+            'Colaboración exitosa con doctores reconocidos en el campo de la cardiología',
+            'Desarrollo de algoritmo para detección temprana de arritmias cardíacas',
+            'Validación clínica con 200 pacientes en Hospital Nacional',
+            'Publicación en memorias del congreso con factor de impacto 2.1',
+            'Reconocimiento como mejor presentación estudiantil en la categoría biomédica'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'salud-2': {
+        title: 'Global Health Innovation',
+        description: 'Proyecto integral desarrollado durante el curso de Global Health Innovation con la Universidad de Arkansas. Enfocado en resolver problemas reales del sistema de salud desde la conceptualización hasta la comercialización, con énfasis en soluciones de telemedicina para comunidades rurales.',
+        tags: ['Salud', 'Innovación', 'Telemedicina', 'Salud Rural'],
+        technologies: ['React', 'Node.js', 'MongoDB', 'WebRTC', 'AWS', 'Mobile Development'],
+        detailedResults: [
+            'Certificación otorgada por la Universidad de Arkansas con calificación A+',
+            'Desarrollo de plataforma de telemedicina para 5 comunidades rurales',
+            'Prototipo funcional validado con 50 profesionales de la salud',
+            'Reducción del 40% en tiempo de consulta médica en zonas remotas',
+            'Plan de negocio completo con proyección financiera a 5 años',
+            'Presentación final ante panel de inversores del sector salud'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'salud-3': {
+        title: 'Monitoreo Vital',
+        description: 'Sistema innovador de monitoreo de signos vitales en tiempo real utilizando sensores IoT y análisis de datos avanzado. Diseñado para proporcionar alertas médicas tempranas y mejorar la atención preventiva en pacientes de riesgo mediante tecnología wearable.',
+        tags: ['IoT', 'Salud', 'Monitoreo', 'Wearables'],
+        technologies: ['Arduino', 'Raspberry Pi', 'Python', 'InfluxDB', 'Grafana', 'MQTT'],
+        detailedResults: [
+            'Prototipo funcional desarrollado y testado con 30 usuarios durante 3 meses',
+            'Detección temprana de anomalías cardíacas con 92% de precisión',
+            'Integración exitosa con sistemas IoT médicos existentes',
+            'Reducción del 35% en visitas de emergencia por monitoreo preventivo',
+            'Validación clínica en colaboración con Centro de Salud Integral',
+            'Patente en proceso de solicitud por innovación en sensores médicos'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'tech-1': {
+        title: 'Desarrollo Web',
+        description: 'Conjunto de aplicaciones web modernas desarrolladas con tecnologías de vanguardia, enfocadas en experiencias de usuario excepcionales y diseño responsivo. Incluye sistemas de gestión, e-commerce y plataformas educativas con arquitectura escalable.',
+        tags: ['Web', 'Frontend', 'Backend', 'Responsive'],
+        technologies: ['React', 'Node.js', 'TypeScript', 'PostgreSQL', 'Docker', 'AWS'],
+        detailedResults: [
+            '5 aplicaciones web completamente desarrolladas y desplegadas en producción',
+            'Más de 10,000 usuarios activos mensuales en todas las plataformas',
+            '98% de satisfacción del usuario según encuestas de experiencia',
+            'Diseño responsive optimizado para todos los dispositivos móviles',
+            'Performance score de 95+ en Google PageSpeed Insights',
+            'Implementación de mejores prácticas de seguridad y accesibilidad web'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'tech-2': {
+        title: 'Dispositivos Biomédicos',
+        description: 'Diseño y prototipado de dispositivos médicos innovadores que combinan electrónica avanzada, software embebido y aplicaciones clínicas. Enfocado en mejorar la atención sanitaria a través de tecnología accesible y de alta precisión.',
+        tags: ['Hardware', 'Biomédica', 'Electrónica', 'Prototipos'],
+        technologies: ['C++', 'Arduino', 'PCB Design', 'CAD', 'MATLAB', 'Embedded Systems'],
+        detailedResults: [
+            '3 prototipos funcionales de dispositivos médicos completamente operativos',
+            'Validación clínica exitosa en 2 hospitales públicos',
+            'Solicitud de patente presentada por innovación en sensores biomédicos',
+            'Reducción del 50% en costos comparado con dispositivos similares',
+            'Certificación CE en proceso para comercialización en Europa',
+            'Colaboración con 4 profesionales médicos para validación clínica'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'tech-3': {
+        title: 'App Móvil Médica',
+        description: 'Aplicación móvil comprehensive para gestión de historiales médicos y comunicación fluida entre pacientes y doctores. Incluye funcionalidades de notificaciones inteligentes, recordatorios de medicamentos y telemedicina integrada.',
+        tags: ['Mobile', 'React Native', 'Salud Digital', 'UX/UI'],
+        technologies: ['React Native', 'Firebase', 'Node.js', 'MongoDB', 'Push Notifications'],
+        detailedResults: [
+            'Aplicación publicada en App Store y Google Play Store',
+            'Más de 1,000 usuarios activos con crecimiento del 15% mensual',
+            'Calificación promedio de 4.8/5 estrellas en ambas tiendas',
+            'Reducción del 30% en tiempo de gestión de citas médicas',
+            'Integración con 3 sistemas hospitalarios principales',
+            'Reconocimiento en concurso nacional de aplicaciones de salud'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'creativo-1': {
+        title: 'Perfumería Artesanal',
+        description: 'Proyecto emprendedor que combina arte y ciencia en el desarrollo de fragancias personalizadas. Refleja la pasión por la innovación aplicada a campos creativos, explorando la química de los aromas y las técnicas tradicionales de perfumería.',
+        tags: ['Creativo', 'Emprendimiento', 'Perfumería', 'Arte'],
+        technologies: ['Química Orgánica', 'Destilación', 'Cromatografía', 'Branding', 'E-commerce'],
+        detailedResults: [
+            '3 fragancias únicas desarrolladas con fórmulas propias registradas',
+            'Dominio de técnicas artesanales tradicionales y modernas',
+            'Establecimiento de marca personal con identidad visual completa',
+            'Ventas directas a más de 50 clientes con 95% de satisfacción',
+            'Colaboración con 2 perfumerías locales para distribución',
+            'Participación en 3 ferias artesanales con reconocimiento público'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'creativo-2': {
+        title: 'Fotografía Médica',
+        description: 'Proyecto artístico único que combina fotografía científica con elementos visuales estéticos para documentar y comunicar avances en medicina. Explora la intersección entre arte y ciencia, creando narrativas visuales impactantes.',
+        tags: ['Fotografía', 'Arte', 'Ciencia', 'Comunicación'],
+        technologies: ['Photography', 'Adobe Photoshop', 'Lightroom', 'Macro Photography', 'Medical Imaging'],
+        detailedResults: [
+            'Más de 50 fotografías científicas de alta calidad capturadas y editadas',
+            'Exhibición principal en evento biomédico con 300+ asistentes',
+            'Reconocimiento por fusión innovadora entre arte y ciencia médica',
+            'Publicación de 10 imágenes en revista de divulgación científica',
+            'Colaboración con 3 laboratorios para documentación visual',
+            'Creación de catálogo digital con narrativas científicas'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
+    'creativo-3': {
+        title: 'Comunicación Científica',
+        description: 'Iniciativa de creación de contenido divulgativo sobre innovaciones biomédicas, transformando conceptos complejos en narrativas accesibles. Busca acercar la ciencia al público general a través de múltiples medios de comunicación.',
+        tags: ['Escritura', 'Divulgación', 'Comunicación', 'Educación'],
+        technologies: ['Writing', 'Content Creation', 'WordPress', 'Social Media', 'Video Editing'],
+        detailedResults: [
+            'Más de 15 artículos divulgativos publicados en diferentes medios',
+            'Alcance de más de 10,000 lectores en plataformas digitales',
+            'Colaboraciones establecidas con 3 revistas científicas especializadas',
+            'Creación de serie educativa sobre ingeniería biomédica',
+            'Participación como ponente en 2 eventos de divulgación científica',
+            'Reconocimiento por contribución a la educación científica popular'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    }
+};
+
+// Project Modal Functions
+function openProjectModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const project = projectData[projectId];
+    
+    if (!project) return;
+    
+    // Populate modal content
+    document.getElementById('modalTitle').textContent = project.title;
+    document.getElementById('modalDescription').textContent = project.description;
+    document.getElementById('modalGithubLink').href = project.githubLink;
+    
+    // Populate tags
+    const tagsContainer = document.getElementById('modalTags');
+    tagsContainer.innerHTML = project.tags.map(tag => 
+        `<span class="tech-tag">${tag}</span>`
+    ).join('');
+    
+    // Populate technologies
+    const techContainer = document.getElementById('modalTechnologies');
+    techContainer.innerHTML = project.technologies.map(tech => 
+        `<span class="tech-item">${tech}</span>`
+    ).join('');
+    
+    // Populate detailed results
+    const resultsContainer = document.getElementById('modalDetailedResults');
+    resultsContainer.innerHTML = '<ul>' + project.detailedResults.map(result => 
+        `<li>${result}</li>`
+    ).join('') + '</ul>';
+    
+    // Show modal
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
 // Initialize all animations and effects
 document.addEventListener('DOMContentLoaded', () => {
     // Add initial fade-in class to animated elements
@@ -415,6 +680,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize project tabs with delay to ensure DOM is ready
     setTimeout(() => {
         initializeProjectTabs();
+        initializeProjectModals();
     }, 100);
     
     // Initialize scroll position

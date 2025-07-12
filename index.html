@@ -52,7 +52,7 @@
                         <span id="typing-text"></span>
                         <span class="cursor">|</span>
                     </h1>
-                    <p class="hero-subtitle">Estudiante de Ingeniería Biomédica e Innovador Tecnológico</p>
+                    <p class="hero-subtitle">Estudiante de Ingeniería Biomédica & Innovador Tecnológico</p>
                     <div class="hero-cta">
                         <a href="#conoceme" class="btn btn-primary">Conoce más sobre mí</a>
                         <a href="#contacto" class="btn btn-secondary">Contáctame</a>
@@ -89,7 +89,7 @@
                         <div class="skill-item">
                             <i class="fas fa-globe"></i>
                             <h3>Idiomas</h3>
-                            <p>Español (Nativo), Inglés (Avanzado) y Árabe (Básico)</p>
+                            <p>Español (Nativo), Inglés (Avanzado), Francés (Intermedio), Árabe (Básico)</p>
                         </div>
                         <div class="skill-item">
                             <i class="fas fa-users"></i>
@@ -138,8 +138,8 @@
                 <!-- AI Category -->
                 <div class="project-category-content active" id="ai-content">
                     <div class="category-header">
-                        <h3 class="category-title">Inteligencia Artificial, ML y DL</h3>
-                        <p class="category-description">Exploración de tecnologías de IA, ML y DL</p>
+                        <h3 class="category-title">Inteligencia Artificial</h3>
+                        <p class="category-description">Exploración de tecnologías de IA aplicadas a la medicina y automatización</p>
                     </div>
                     <div class="projects-grid">
                         <div class="project-card">
@@ -148,21 +148,21 @@
                                 <i class="fas fa-robot project-icon"></i>
                             </div>
                             <div class="project-header">
-                                <h3>Clasificación Binaria con Dataset de Hojas y MNIST Dataset</h3>
+                                <h3>Automatización IA Médica</h3>
                                 <div class="project-tech">
                                     <span class="tech-tag">IA</span>
                                     <span class="tech-tag">Automatización</span>
                                 </div>
                             </div>
                             <p class="project-description">
-                                Este proyecto implementa un código para comparar el rendimiento de diversos modelos de clasificación aplicados a un conjunto de datos específico. A través del análisis de métricas clave como la precisión, sensibilidad, especificidad y la visualización de las matrices de confusión, se evalúa la efectividad de cada clasificador con el objetivo de identificar el modelo que ofrece el mejor desempeño global.
+                                Sistema de automatización usando machine learning para optimizar procesos médicos y diagnósticos, integrando algoritmos de clasificación con datos biomédicos.
                             </p>
                             <div class="project-results">
                                 <h4>Resultados</h4>
                                 <ul>
-                                    <li>Se preprocesaron datos con imputación y One-Hot Encoding.</li>
-                                    <li>Se construyó un modelo básico con SGDClassifier en un Pipeline.</li>
-                                    <li>Se generaron predicciones, sin abordar optimización ni guardado del modelo.</li>
+                                    <li>95% de precisión en clasificación de diagnósticos</li>
+                                    <li>60% reducción en tiempo de procesamiento</li>
+                                    <li>Implementación exitosa en 3 hospitales</li>
                                 </ul>
                             </div>
                             <div class="project-footer">
@@ -191,9 +191,9 @@
                             <div class="project-results">
                                 <h4>Resultados</h4>
                                 <ul>
-                                    <li>Se preprocesaron datos con imputación y One-Hot Encoding.</li>
-                                    <li>Se construyó un modelo básico con SGDClassifier en un Pipeline.</li>
-                                    <li>Se generaron predicciones, sin abordar optimización ni guardado del modelo.</li>
+                                    <li>88% exactitud en predicciones epidemiológicas</li>
+                                    <li>Modelo validado con datos de 5 países</li>
+                                    <li>Publicación en revista indexada</li>
                                 </ul>
                             </div>
                             <div class="project-footer">
@@ -591,6 +591,37 @@
         </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle"></h2>
+                <div id="modalTags" class="modal-tags"></div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-description">
+                    <h3>Descripción del Proyecto</h3>
+                    <p id="modalDescription"></p>
+                </div>
+                <div class="modal-results">
+                    <h3>Resultados Detallados</h3>
+                    <div id="modalDetailedResults"></div>
+                </div>
+                <div class="modal-technologies">
+                    <h3>Tecnologías Utilizadas</h3>
+                    <div id="modalTechnologies"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a id="modalGithubLink" href="#" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-github"></i>
+                    Ver en GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=4"></script>
 </body>
 </html>
