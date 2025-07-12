@@ -1,0 +1,44 @@
+Crea un portafolio personal estilo landing page profesional, sin usar React (solo HTML, CSS y JavaScript). Quiero un diseño minimalista en escala de grises, blanco y negro, con un fondo interactivo (puede ser en 3D, con partículas o formas animadas tipo waves o glowing shapes).
+
+Tipografía moderna, con una animación de entrada tipo typing effect en el texto principal (como "Hola, soy Jalal Kaddoura").
+
+Estructura tipo SPA (página única con scroll a secciones), con las siguientes secciones en la navegación superior:
+
+Inicio
+
+Conóceme
+
+Proyectos
+
+Contacto
+
+Estilo similar a esta referencia visual: (usa un fondo dinámico, tipografía bold en el encabezado y diseño centrado con scroll down icon).
+
+En la sección Inicio, que aparezca el mensaje con efecto typing:
+
+Copiar
+Editar
+Hola, soy Jalal Kaddoura
+En Conóceme, incluir este texto:
+
+Soy estudiante de Ingeniería Biomédica, actualmente curso el Cuatrimestre X en la Universidad Latina de Panamá. Tengo un fuerte interés en la innovación tecnológica, los negocios y el emprendimiento. Me apasiona el desarrollo de ideas desde su fase conceptual hasta su implementación en el mercado, especialmente en el ámbito de la salud. Recientemente he comenzado a explorar el campo de la inteligencia artificial y la automatización.
+
+Hablo español, inglés avanzado y árabe intermedio. Me destaco en oratoria, formación de equipos y liderazgo. Actualmente soy presidente de la Rama Estudiantil IEEE de la Universidad Latina de Panamá, habiendo ocupado anteriormente el cargo de vicepresidente. Presenté un artículo científico en el congreso CLAIB 2024 junto al Dr. Ernesto Ibarra y el Dr. Luis Estrada Petrocelli.
+
+Además, completé un curso de Global Health Innovation con la Universidad de Arkansas, enfocado en resolver problemas reales del sistema de salud desde la idea hasta su comercialización. Paralelamente, cultivo mi lado creativo como perfumista: he creado mi propia fragancia y continúo mi formación en el arte de la perfumería.
+
+En Proyectos, dejar espacio para 2 o 3 proyectos con tarjetas que incluyan título, breve descripción y botón de GitHub.
+
+En Contacto, agregar:
+
+Botón 📄 para “Descargar CV”
+
+Email: jalalkulat@gmail.com
+
+LinkedIn: linkedin.com/in/jalalkaddoura
+
+GitHub: github.com/Jalalk123
+
+Asegurate que sea responsive, que tenga efecto de hover suave en los botones y secciones, y que el diseño sea limpio y profesional.
+
+Solo quiero los archivos necesarios: index.html, style.css, y script.js.
