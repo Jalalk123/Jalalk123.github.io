@@ -1143,4 +1143,21 @@ html {
     a, button, .btn, .project-card, .skill-item, .nav-link, .hamburger {
         cursor: auto;
     }
+    /* Imagen con efecto de expansión al hacer hover */
+.image-container {
+  overflow: hidden;
+  display: inline-block;
+  border-radius: 10px; /* opcional */
+}
+
+.expand-on-hover {
+  transition: transform 0.4s ease;
+  width: 100%;
+  display: block;
+}
+
+.expand-on-hover:hover {
+  transform: scale(1.1);
+}
+
 }
