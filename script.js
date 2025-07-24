@@ -457,17 +457,7 @@ const projectData = {
         githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/blob/main/Laboratorio%203%20-%20Clasificacion-Jalal%20Kaddoura.ipynb'
     },
     'ai-2': {
-        title: 'Machine Learning para Predecir el Transporte de Pasajeros en el Titanic Spaceship',
-        description: 'Este proyecto explora el uso de modelos de machine learning para predecir la probabilidad de que un pasajero de la nave espacial "Titanic Spaceship" haya sido transportado o no durante una anomalía en su viaje interestelar. Se utilizaron técnicas de análisis exploratorio, limpieza de datos y algoritmos de clasificación como Random Forest y Gradient Boosting, empleando un dataset simulado con atributos como el planeta de origen, cabina, edad, y gasto en distintas áreas de la nave. El objetivo principal fue construir un modelo predictivo eficaz y evaluar su rendimiento mediante métricas como accuracy y F1-score.',
-        tags: ['ML', 'RandomForest', 'Deep Learning', 'Métricas'],
-        technologies: ['Python', 'Jupyter', 'Matplotlib'],
-        detailedResults: [
-            'El modelo Gradient Boosting Classifier se destacó como el más eficaz al lograr un accuracy de aproximadamente 81% y un F1-score cercano al 79%. Este rendimiento se logró después de un exhaustivo preprocesamiento que incluyó codificación categórica (LabelEncoder), normalización, y manejo cuidadoso de valores nulos. La importancia de características mostró que factores como el origen del pasajero (HomePlanet) y su estado en criosueño (CryoSleep) influenciaban significativamente el resultado de ser transportado, lo que sugiere que las decisiones sobre el viaje interplanetario y el perfil del pasajero tienen un peso sustancial en el desenlace del evento simulado.'
-        ],
-        githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/blob/main/Tarea1-TitanicSpaceshipJalal.ipynb'
-    },
-    'ai-3': {
-        title: 'Sistema de Recomendación',
+        title: 'Análisis Predictivo del Alquiler de Bicicletas mediante Técnicas de Aprendizaje Automático',
         description: 'El presente proyecto tiene como objetivo analizar patrones de uso en el sistema de alquiler de bicicletas mediante el uso de algoritmos de aprendizaje automático. A partir de un conjunto de datos que incluye características climáticas, temporales y del sistema, se entrenaron y evaluaron modelos supervisados como la regresión lineal, árboles de decisión y K-Nearest Neighbors. Se realizó una separación del conjunto de datos en entrenamiento y prueba, con métricas de rendimiento como RMSE y R² utilizadas para comparar la precisión de las predicciones. Los resultados muestran que el modelo KNN con un número adecuado de vecinos presenta una capacidad predictiva sólida para estimar el número de bicicletas alquiladas por día. Este análisis puede contribuir a mejorar la planificación de recursos y toma de decisiones en sistemas de transporte urbano.',
         tags: ['AI', 'Aprendizaje automático supervisado', 'Predicción'],
         technologies: ['Python', 'K-Nearest Neighbors (KNN)'],
@@ -477,6 +467,16 @@ const projectData = {
             'Las métricas de evaluación mostraron que KNN redujo significativamente el RMSE en comparación con los otros modelos, y obtuvo un mayor valor de R², lo que indica una mejor capacidad de generalización en los datos de prueba.',
         ],
         githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/blob/main/Laboratorio%202%20-%20Alquiler%20de%20Bicicletas.ipynb'
+    },
+    'ai-3': {
+        title: 'Machine Learning para Predecir el Transporte de Pasajeros en el Titanic Spaceship',
+        description: 'Este proyecto explora el uso de modelos de machine learning para predecir la probabilidad de que un pasajero de la nave espacial "Titanic Spaceship" haya sido transportado o no durante una anomalía en su viaje interestelar. Se utilizaron técnicas de análisis exploratorio, limpieza de datos y algoritmos de clasificación como Random Forest y Gradient Boosting, empleando un dataset simulado con atributos como el planeta de origen, cabina, edad, y gasto en distintas áreas de la nave. El objetivo principal fue construir un modelo predictivo eficaz y evaluar su rendimiento mediante métricas como accuracy y F1-score.',
+        tags: ['ML', 'RandomForest', 'Deep Learning', 'Métricas'],
+        technologies: ['Python', 'Jupyter', 'Matplotlib'],
+        detailedResults: [
+            'El modelo Gradient Boosting Classifier se destacó como el más eficaz al lograr un accuracy de aproximadamente 81% y un F1-score cercano al 79%. Este rendimiento se logró después de un exhaustivo preprocesamiento que incluyó codificación categórica (LabelEncoder), normalización, y manejo cuidadoso de valores nulos. La importancia de características mostró que factores como el origen del pasajero (HomePlanet) y su estado en criosueño (CryoSleep) influenciaban significativamente el resultado de ser transportado, lo que sugiere que las decisiones sobre el viaje interplanetario y el perfil del pasajero tienen un peso sustancial en el desenlace del evento simulado.'
+        ],
+        githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/blob/main/Tarea1-TitanicSpaceshipJalal.ipynb'
     },
       'ai-4': {
         title: 'Sistema de Recomendación',
