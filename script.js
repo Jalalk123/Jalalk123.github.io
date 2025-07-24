@@ -479,19 +479,16 @@ const projectData = {
         githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/blob/main/Tarea1-TitanicSpaceshipJalal.ipynb'
     },
       'ai-4': {
-        title: 'Sistema de Recomendación',
-        description: 'Algoritmo de recomendación personalizada para tratamientos médicos basado en historial clínico y patrones de respuesta a terapias. Utiliza técnicas de aprendizaje automático para sugerir tratamientos óptimos considerando el perfil específico de cada paciente.',
-        tags: ['AI', 'Recomendación', 'Medicina Personalizada', 'Algoritmos'],
-        technologies: ['Python', 'K-Nearest Neighbors (KNN)'],
+        title: 'Clustering de Recetas para Optimización de Tráfico(Tasty Bites)',
+        description: 'Este proyecto utiliza técnicas de análisis de datos y aprendizaje no supervisado, específicamente K-Means clustering, para segmentar recetas en función de sus características nutricionales, categorías y porciones. El objetivo es comprender mejor el catálogo de recetas de Tasty Bytes y apoyar estrategias de contenido basadas en datos. Se identificaron 4 segmentos distintos de recetas, lo que permitió visualizar patrones ocultos y construir una base sólida para futuras predicciones.',
+        tags: ['Clustering', 'Segmentación de Recetas', 'One-Hot Encoding'],
+        technologies: ['Python', 'Matplotlib'],
         detailedResults: [
-            'Integración exitosa con 10 sistemas hospitalarios principales',
-            'Mejora del 78% en la eficacia de tratamientos recomendados vs. métodos tradicionales',
-            'Reducción del 45% en efectos adversos reportados en tratamientos recomendados',
-            'Base de datos de conocimiento con más de 100,000 casos clínicos',
-            'Sistema de feedback continuo con validación de outcomes clínicos',
-            'Reconocimiento en congreso internacional de medicina personalizada'
+            'Se identificaron 4 clústeres distintos de recetas con perfiles bien definidos:Segmento 0: Recetas balanceadas para comidas familiares.Segmento 1: Altas en azúcar (postres y bebidas dulces).Segmento 2: Snacks y comidas rápidas de porciones pequeñas.Segmento 3: Platos ricos en proteína y calorías (principalmente carnes).',
+            'La proporción de recetas con tráfico alto fue constante entre segmentos (~60%), confirmando que el clustering se basó en características nutricionales y no directamente en el tráfico.',
+            'Se presenatron los datos relevantes en un dashboard de Streamlit'
         ],
-        githubLink: 'https://github.com/Jalalk123'
+        githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/tree/main/Tarea%202'
     },
     'salud-1': {
         title: 'Investigación CLAIB 2024',
