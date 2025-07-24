@@ -481,6 +481,21 @@ const projectData = {
         ],
         githubLink: 'https://github.com/Jalalk123'
     },
+      'ai-4': {
+        title: 'Sistema de Recomendación',
+        description: 'Algoritmo de recomendación personalizada para tratamientos médicos basado en historial clínico y patrones de respuesta a terapias. Utiliza técnicas de aprendizaje automático para sugerir tratamientos óptimos considerando el perfil específico de cada paciente.',
+        tags: ['AI', 'Recomendación', 'Medicina Personalizada', 'Algoritmos'],
+        technologies: ['Python', 'Scikit-learn', 'Neo4j', 'Apache Kafka', 'Docker', 'MongoDB'],
+        detailedResults: [
+            'Integración exitosa con 10 sistemas hospitalarios principales',
+            'Mejora del 78% en la eficacia de tratamientos recomendados vs. métodos tradicionales',
+            'Reducción del 45% en efectos adversos reportados en tratamientos recomendados',
+            'Base de datos de conocimiento con más de 100,000 casos clínicos',
+            'Sistema de feedback continuo con validación de outcomes clínicos',
+            'Reconocimiento en congreso internacional de medicina personalizada'
+        ],
+        githubLink: 'https://github.com/Jalalk123'
+    },
     'salud-1': {
         title: 'Investigación CLAIB 2024',
         description: 'Artículo científico presentado en el congreso CLAIB 2024 en colaboración con el Dr. Ernesto Ibarra y el Dr. Luis Estrada Petrocelli. La investigación se enfoca en innovaciones en ingeniería biomédica aplicadas a dispositivos de monitoreo cardiovascular no invasivo.',
