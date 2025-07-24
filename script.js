@@ -468,24 +468,21 @@ const projectData = {
     },
     'ai-3': {
         title: 'Sistema de Recomendación',
-        description: 'Algoritmo de recomendación personalizada para tratamientos médicos basado en historial clínico y patrones de respuesta a terapias. Utiliza técnicas de aprendizaje automático para sugerir tratamientos óptimos considerando el perfil específico de cada paciente.',
-        tags: ['AI', 'Recomendación', 'Medicina Personalizada', 'Algoritmos'],
-        technologies: ['Python', 'Scikit-learn', 'Neo4j', 'Apache Kafka', 'Docker', 'MongoDB'],
+        description: 'El presente proyecto tiene como objetivo analizar patrones de uso en el sistema de alquiler de bicicletas mediante el uso de algoritmos de aprendizaje automático. A partir de un conjunto de datos que incluye características climáticas, temporales y del sistema, se entrenaron y evaluaron modelos supervisados como la regresión lineal, árboles de decisión y K-Nearest Neighbors. Se realizó una separación del conjunto de datos en entrenamiento y prueba, con métricas de rendimiento como RMSE y R² utilizadas para comparar la precisión de las predicciones. Los resultados muestran que el modelo KNN con un número adecuado de vecinos presenta una capacidad predictiva sólida para estimar el número de bicicletas alquiladas por día. Este análisis puede contribuir a mejorar la planificación de recursos y toma de decisiones en sistemas de transporte urbano.',
+        tags: ['AI', 'Aprendizaje automático supervisado', 'Predicción'],
+        technologies: ['Python', 'K-Nearest Neighbors (KNN)'],
         detailedResults: [
-            'Integración exitosa con 10 sistemas hospitalarios principales',
-            'Mejora del 78% en la eficacia de tratamientos recomendados vs. métodos tradicionales',
-            'Reducción del 45% en efectos adversos reportados en tratamientos recomendados',
-            'Base de datos de conocimiento con más de 100,000 casos clínicos',
-            'Sistema de feedback continuo con validación de outcomes clínicos',
-            'Reconocimiento en congreso internacional de medicina personalizada'
+            'El modelo K-Nearest Neighbors con 4 vecinos (k=4) alcanzó el mejor desempeño general en la predicción del número total de bicicletas alquiladas, logrando un balance adecuado entre complejidad y precisión.',
+            'La regresión lineal mostró un desempeño razonable pero limitado por su incapacidad para capturar relaciones no lineales.',
+            'Las métricas de evaluación mostraron que KNN redujo significativamente el RMSE en comparación con los otros modelos, y obtuvo un mayor valor de R², lo que indica una mejor capacidad de generalización en los datos de prueba.',
         ],
-        githubLink: 'https://github.com/Jalalk123'
+        githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/blob/main/Laboratorio%202%20-%20Alquiler%20de%20Bicicletas.ipynb'
     },
       'ai-4': {
         title: 'Sistema de Recomendación',
         description: 'Algoritmo de recomendación personalizada para tratamientos médicos basado en historial clínico y patrones de respuesta a terapias. Utiliza técnicas de aprendizaje automático para sugerir tratamientos óptimos considerando el perfil específico de cada paciente.',
         tags: ['AI', 'Recomendación', 'Medicina Personalizada', 'Algoritmos'],
-        technologies: ['Python', 'Scikit-learn', 'Neo4j', 'Apache Kafka', 'Docker', 'MongoDB'],
+        technologies: ['Python', 'K-Nearest Neighbors (KNN)'],
         detailedResults: [
             'Integración exitosa con 10 sistemas hospitalarios principales',
             'Mejora del 78% en la eficacia de tratamientos recomendados vs. métodos tradicionales',
