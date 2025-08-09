@@ -500,6 +500,26 @@ const projectData = {
         ],
         githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/tree/main/Tarea%202'
     },
+              'ai-6': {
+        title: 'Detección de Objetos Personalizada con YOLOv5',
+        description: 'El objetivo principal de este proyecto es desarrollar un sistema de detección de objetos capaz de identificar drones utilizando el algoritmo YOLOv5. Se empleó la versión mediana de YOLOv5, conocida por su equilibrio entre velocidad y precisión. El conjunto de datos utilizado, derivado del Drone-dataset de Kaggle, fue preprocesado y reducido a 526 imágenes, con una distribución del 70% para entrenamiento, 10% para validación y 20% para pruebas. El flujo de trabajo abarca desde la configuración de dependencias y la preparación meticulosa del conjunto de datos, hasta la visualización de los datos, el entrenamiento del modelo y, finalmente, la fase de inferencia para demostrar la capacidad del modelo para detectar drones en nuevas imágenes. Este enfoque permite la creación de un detector de drones eficiente y adaptado a un dominio específico.',
+        tags: ['Visión por Computadora', 'Detección de Objetos', 'Deep Learning'],
+        technologies: ['YOLOv5', 'PyTorch'],
+        detailedResults: [
+            'Tras 100 épocas de entrenamiento, el modelo YOLOv5 alcanzó un rendimiento notable en la detección de drones. Las métricas clave de evaluación fueron un mAP@0.5 (mean Average Precision a un umbral de IoU de 0.5) de 0.941, lo que sugiere una alta precisión en la identificación de objetos. Además, el mAP@0.5:0.95 (mean Average Precision promediado sobre varios umbrales de IoU, de 0.5 a 0.95) fue de 0.589, indicando una buena robustez del modelo en diferentes niveles de superposición de las cajas delimitadoras. Estos resultados confirman la efectividad del modelo para la tarea de detección de drones en el conjunto de datos personalizado.'
+        ],
+        githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/tree/main/Tarea%202'
+    },
+                  'ai-7': {
+        title: 'Clustering de Recetas para Optimización de Tráfico(Tasty Bites)',
+        description: 'El proyecto se centra en la aplicación de la técnica de Transfer Learning, una estrategia fundamental en el aprendizaje profundo para resolver problemas de clasificación de imágenes con conjuntos de datos limitados. Se utilizan modelos pre-entrenados en el dataset ImageNet, específicamente EfficientNetV2-B0, para aprovechar las características jerárquicas aprendidas. El flujo de trabajo implica la carga de estos modelos sin la capa superior (clasificador), la adición de nuevas capas de clasificación adaptadas al problema específico, y el entrenamiento de estas nuevas capas mientras se mantienen congeladas las capas convolucionales pre-entrenadas. Esto permite una convergencia más rápida y un mejor rendimiento, especialmente cuando se dispone de pocos datos. El notebook también muestra la importancia de la preparación de datos mediante ImageDataGenerator para el aumento de datos y la normalización.',
+        tags: ['Aprendizaje Automático', 'Visión por Computadora', 'Redes Neuronales Convolucionales'],
+        technologies: ['TensorFlow', 'EfficientNetV2'],
+        detailedResults: [
+            'El enfoque de Transfer Learning implementado en este proyecto, utilizando modelos como EfficientNetV2-B0, permite una clasificación de imágenes eficiente y con un rendimiento prometedor. Al reutilizar las características extraídas por modelos entrenados en ImageNet, se reduce significativamente el tiempo de entrenamiento y la necesidad de grandes volúmenes de datos etiquetados. La inclusión de ImageDataGenerator para el aumento de datos contribuye a la robustez del modelo, ayudando a prevenir el sobreajuste y a mejorar la capacidad de generalización. Aunque el notebook no presenta métricas de rendimiento cuantitativas (como precisión o pérdida), la metodología empleada es estándar y ampliamente reconocida por su eficacia en tareas de visión por computadora, lo que implica que el modelo resultante sería capaz de realizar clasificaciones precisas en nuevos datos.'
+        ],
+        githubLink: 'https://github.com/Jalalk123/ArtificialIntelligence-Projects-/tree/main/Tarea%202'
+    },
     'salud-1': {
         title: 'Investigación CLAIB 2024',
         description: 'Artículo científico presentado en el congreso CLAIB 2024 en colaboración con el Dr. Ernesto Ibarra y el Dr. Luis Estrada Petrocelli. La investigación se enfoca en innovaciones en ingeniería biomédica aplicadas a dispositivos de monitoreo cardiovascular no invasivo.',
