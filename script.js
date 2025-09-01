@@ -527,28 +527,21 @@ const projectData = {
         technologies: ['MATLAB', 'Signal Processing', 'ECG Analysis', 'Statistical Analysis', 'LaTeX'],
         detailedResults: [
             'Artículo aceptado y presentado en el congreso CLAIB 2024 con más de 500 asistentes',
-            'Colaboración exitosa con doctores reconocidos en el campo de la cardiología',
-            'Desarrollo de algoritmo para detección temprana de arritmias cardíacas',
-            'Validación clínica con 200 pacientes en Hospital Nacional',
-            'Publicación en memorias del congreso con factor de impacto 2.1',
-            'Reconocimiento como mejor presentación estudiantil en la categoría biomédica'
+            'Colaboración exitosa con doctores reconocidos en el campo de la Ingenieria'
         ],
         githubLink: 'https://github.com/Jalalk123'
     },
     'salud-2': {
         title: 'Global Health Innovation',
-        description: 'Proyecto integral desarrollado durante el curso de Global Health Innovation con la Universidad de Arkansas. Enfocado en resolver problemas reales del sistema de salud desde la conceptualización hasta la comercialización, con énfasis en soluciones de telemedicina para comunidades rurales.',
+        description: 'Proyecto integral desarrollado durante el curso de Global Health Innovation con la Universidad de Arkansas. Enfocado en resolver problemas reales del sistema de salud desde la conceptualización hasta la comercialización.',
         tags: ['Salud', 'Innovación', 'Telemedicina', 'Salud Rural'],
-        technologies: ['React', 'Node.js', 'MongoDB', 'WebRTC', 'AWS', 'Mobile Development'],
+        technologies: ['Presupuestos', 'Invetigación', 'Análisis de mercado'],
         detailedResults: [
             'Certificación otorgada por la Universidad de Arkansas con calificación A+',
-            'Desarrollo de plataforma de telemedicina para 5 comunidades rurales',
-            'Prototipo funcional validado con 50 profesionales de la salud',
-            'Reducción del 40% en tiempo de consulta médica en zonas remotas',
-            'Plan de negocio completo con proyección financiera a 5 años',
+            'Plan de negocio completo con proyección financiera',
             'Presentación final ante panel de inversores del sector salud'
         ],
-        githubLink: 'https://github.com/Jalalk123'
+        githubLink: 'https://drive.google.com/file/d/1GNjCTSpyKznthhr5eGpV_ty9AFVzOm2I/view?usp=sharing'
     },
     'salud-3': {
         title: 'Monitoreo Vital',
